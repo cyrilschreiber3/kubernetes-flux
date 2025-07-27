@@ -22,7 +22,10 @@ spec:
 
     ports:
       web:
-        redirectTo: websecure
+        redirections:
+          to: websecure
+          scheme: https
+          permanent: true
       websecure:
         tls:
           enabled: true
