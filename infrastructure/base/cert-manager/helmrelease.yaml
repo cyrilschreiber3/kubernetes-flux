@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: cert-manager
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: cert-manager
+      version: "1.*"
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: cert-manager
+      interval: 12h
+  values:
+    installCRDs: true
+    replicaCount: 3
+    extraArgs:
+      - --dns01-recusive-nameservers=208.67.222.222:53,195.186.4.109:53
+      - --dns01-recusive-nameservers-only
+    podsDnsPolicy: none
+    podsDnsConfig:
+      nameservers:
+        - "208.67.222.222" # OpenDNS Home
+        - "195.186.4.109" # Swisscom (Zurich)
