@@ -17,3 +17,10 @@ creation_rules:
           - *cyril
           - *flux
           - *endeavor_dev_01
+
+  - path_regex: .*\.yaml$
+    key_groups:
+      - age:
+          - *cyril
+          - *flux
+          - *endeavor_dev_01
