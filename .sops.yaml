@@ -11,6 +11,7 @@ creation_rules:
           - *cyril
           - *endeavor_dev_01
   - path_regex: secret.*\.yaml$
+    encrypted_regex: ^(data|stringData)$
     key_groups:
       - age:
           - *cyril
