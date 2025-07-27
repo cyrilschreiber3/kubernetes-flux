@@ -12,13 +12,13 @@ spec:
       name: letsencrypt-staging
     solvers:
       - dns01:
-        webhook:
-          groupName: acme.infomaniak.com
-          solverName: infomaniak
-          config:
-            apiTokenSecretRef:
-              name: infomaniak-api-credentials
-              key: api-token
+          webhook:
+            groupName: acme.infomaniak.com
+            solverName: infomaniak
+            config:
+              apiTokenSecretRef:
+                name: infomaniak-api-credentials
+                key: api-token
         selector:
           dnsZones:
             - "cyrilschreibernet.ch"
