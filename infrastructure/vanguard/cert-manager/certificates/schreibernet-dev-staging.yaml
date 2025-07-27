@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: schreibernet-dev-staging
+  namespace: cert-manager
+spec:
+  secretName: schreibernet-dev-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: "schreibernet.dev"
+  dnsNames:
+    - "schreibernet.dev"
