@@ -16,11 +16,11 @@ spec:
         namespace: cert-manager
       interval: 12h
   values:
-    installCRDs: false
+    installCRDs: true
     replicaCount: 3
     extraArgs:
-      - --dns01-recusive-nameservers=208.67.222.222:53,195.186.4.109:53
-      - --dns01-recusive-nameservers-only
+      - --dns01-recursive-nameservers=208.67.222.222:53,195.186.4.109:53
+      - --dns01-recursive-nameservers-only
     podDnsPolicy: None
     podDnsConfig:
       nameservers:
