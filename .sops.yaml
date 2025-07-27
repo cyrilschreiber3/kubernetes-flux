@@ -1,11 +1,18 @@
 keys:
   - users:
       - &cyril age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
+      - &flux age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
   - hosts:
       - &endeavor_dev_01 age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
 creation_rules:
-  - path_regex: kube-secrets.yaml$
+  - path_regex: kube-secrets\.yaml$
     key_groups:
       - age:
           - *cyril
+          - *endeavor_dev_01
+  - path_regex: secret.*\.yaml$
+    key_groups:
+      - age:
+          - *cyril
+          - *flux
           - *endeavor_dev_01
