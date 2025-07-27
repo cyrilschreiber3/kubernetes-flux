@@ -38,6 +38,9 @@ spec:
       kubernetesIngress:
         enabled: true
 
+    ingressClass:
+      enabled: true
+
     rbac:
       enabled: true
 
