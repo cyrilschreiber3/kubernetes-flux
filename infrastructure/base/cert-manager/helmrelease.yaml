@@ -21,8 +21,8 @@ spec:
     extraArgs:
       - --dns01-recusive-nameservers=208.67.222.222:53,195.186.4.109:53
       - --dns01-recusive-nameservers-only
-    podsDnsPolicy: none
-    podsDnsConfig:
+    podDnsPolicy: none
+    podDnsConfig:
       nameservers:
         - "208.67.222.222" # OpenDNS Home
         - "195.186.4.109" # Swisscom (Zurich)
