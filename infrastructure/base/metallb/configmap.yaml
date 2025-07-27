@@ -4,8 +4,8 @@ metadata:
   namespace: metallb-system
   name: config
 data:
-  config:
-    address-pools: |
+  config: |
+    address-pools:
       - name: default
         protocol: layer2
         addresses:
