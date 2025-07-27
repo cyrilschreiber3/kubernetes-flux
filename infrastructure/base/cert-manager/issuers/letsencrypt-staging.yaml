@@ -23,3 +23,5 @@ spec:
             - "cyrilschreibernet.ch"
             - "the127001.ch"
             - "schreibernet.dev"
+  privateKey:
+    rotationPolicy: Always
