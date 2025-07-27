@@ -1,0 +1,14 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: schreibernet-dev-production
+  namespace: cert-manager
+spec:
+  secretName: schreibernet-dev-production-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: schreibernet.dev
+  dnsNames:
+    - schreibernet.dev

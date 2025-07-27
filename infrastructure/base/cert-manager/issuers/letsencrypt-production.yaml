@@ -1,0 +1,57 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt-production
+spec:
+    acme:
+        server: https://acme-v02.api.letsencrypt.org/directory
+        email: ENC[AES256_GCM,data:hkJCB+beXMLkn1kxHK1mK5uNtegAkRXXbw==,iv:OQgXCVAmwn8Lp0Jn/lVw3i2k5wltspsYwZZ7AbpTCW8=,tag:12smq780NhLPocPdITr2sQ==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt-production
+        solvers:
+            - dns01:
+                webhook:
+                    groupName: acme.infomaniak.com
+                    solverName: infomaniak
+                    config:
+                        apiTokenSecretRef:
+                            name: infomaniak-api-credentials
+                            key: api-token
+              selector:
+                dnsZones:
+                    - cyrilschreibernet.ch
+                    - the127001.ch
+                    - schreibernet.dev
+sops:
+    age:
+        - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVN1Z6cUNSNkUxdzNXQlh3
+            V2hLSUgwZzl2YXVhMytqdEZHL2dqYkE0RHpJCm9EZmhkLzdlU1MxdHBla28xU0ll
+            aGlzNjU5YmpPWnpYRzFna0NQN1pLVlUKLS0tIHkzeDN3UGZVdEtQZjZMNk1iNWxE
+            ZWlPRjRPcXpRSTZ1dFJ2bGppbFNoN3MKVJfJaTclHk46hI504vo0lgDugm45eE6f
+            2x42m3KsZPo+EVh6P+ifco/Vi6XlmEuVCGSV0l3mXOui7sZUQvloKw==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2YVVXLzBTbmJUUXZUWUUw
+            ZlZwbTZPMExUSjdDNGUwQ3RZdldJY283NzJJCnkyUWJzWEQ4QmFTMUw2c3FyRjVT
+            VzdldG1NTStqUWhSUXV1TEJERndNdlUKLS0tIEpla3pEVUp5TXJObGtoWUpFeXNU
+            VVBxRzJaVUEvZVVzbWc3bzNIRlI2WkUKilIbUVSkuuaqC/vM5se/pMjaozlz3VYu
+            Fjn7iRbnDdrAy+EetbgUiuteGDuedH221GlubGfAofCrIPnbqgs8oA==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwdWJ3WnRNazlycHF3eHoz
+            QWs5Zi9OTXc0Z2xwenlFWkNlemVnZ0x3U2lvCjlPV3lBVmhEK1J0WDF3OS9ZSTA5
+            eHJYKy9JeTdDbVdqb29aajViUDFWNW8KLS0tIEpsZHREQkZ2cFNJMWhHaUE1emd4
+            bXgzeWVxQ1ZJNTVkZzVFM3ZRUWlBRUUKO8lmQGxYv5wrUNjZx9w8b+zORhYNm/kL
+            QM/uyAdsJLMmWucPfgCdgK7zUvAbKrMeOl/k7FjAW07EYzhGO8dPAg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-07-27T22:21:10Z"
+    mac: ENC[AES256_GCM,data:8GDU0R62GdZTInb+36sOBqnCDOovmvMJCiU4jPDuhVfzfHraCbQvkuydmgrYRtCv8CAceLfRPitLcDNJGYEEF0U4UDZ7r2OY3MVcn6jwCrEiL3Mpp/5NyqY6oH9+jhD0p07JY9ZnEyrC5L+Zv8I7c8OpR8UhkwUIk5a9cMInGcw=,iv:338+9Xj0cwaEjVhEVC3MxqGXmHG4hi2BP3zJyqWScgk=,tag:IZozk+sghJG04vxX9dfQmA==,type:str]
+    encrypted_regex: ^(email)$
+    version: 3.10.2
