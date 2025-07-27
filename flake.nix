@@ -30,6 +30,8 @@
               ]
               ++ [
                 (pkgs.writeShellScriptBin "k" "${kubectl}/bin/kubectl $@")
+                (pkgs.writeShellScriptBin "sops-encrypt" "${sops}/bin/sops --encrypt --encrypted-regex '^(data|stringData)$' --in-place $1")
+                (pkgs.writeShellScriptBin "b64" "read -s -p 'Enter string to encode: ' input; echo; echo -n \"\$input\" | base64")
               ];
 
             shellHook = ''
