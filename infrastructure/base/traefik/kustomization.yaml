@@ -4,3 +4,4 @@ namespace: portainer-agent
 resources:
   - helmrelease.yaml
   - helmrepo.yaml
+  - namespace.yaml
