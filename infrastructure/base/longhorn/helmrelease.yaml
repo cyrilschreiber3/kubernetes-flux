@@ -17,5 +17,5 @@ spec:
       interval: 12h
       valuesFiles:
         - helmvalues.yaml
-        - ../../vanguard/longhorn/helmvalues.yaml
+        # - ../../vanguard/longhorn/helmvalues.yaml
       ignoreMissingValuesFiles: true

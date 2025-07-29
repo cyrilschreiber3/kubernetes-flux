@@ -3,7 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/longhorn
-  - dashboard/basicauth-middleware.yaml
-  - dashboard/certificate.yaml
-  - dashboard/ingress.yaml
-  - dashboard/secret-dashboard.yaml
+  # - dashboard/basicauth-middleware.yaml
+  # - dashboard/certificate.yaml
+  # - dashboard/ingress.yaml
+  # - dashboard/secret-dashboard.yaml
