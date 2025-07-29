@@ -5,7 +5,7 @@ metadata:
   name: longhorn-release
   namespace: longhorn-system
 spec:
-  interval: 30min
+  interval: 30m
   chart:
     spec:
       chart: longhorn
