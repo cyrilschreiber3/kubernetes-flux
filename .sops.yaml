@@ -10,7 +10,9 @@ creation_rules:
       - age:
           - *cyril
           - *endeavor_dev_01
+
   - path_regex: secret.*\.yaml$
+    mac_only_encrypted: true
     encrypted_regex: ^(data|stringData)$
     key_groups:
       - age:
@@ -19,6 +21,7 @@ creation_rules:
           - *endeavor_dev_01
 
   - path_regex: .*\.yaml$
+    mac_only_encrypted: true
     key_groups:
       - age:
           - *cyril
