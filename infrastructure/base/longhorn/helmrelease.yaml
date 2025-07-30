@@ -19,3 +19,7 @@ spec:
         - helmvalues.yaml
         # - ../../vanguard/longhorn/helmvalues.yaml
       ignoreMissingValuesFiles: true
+
+  values:
+    networkPolicies:
+      enabled: false
