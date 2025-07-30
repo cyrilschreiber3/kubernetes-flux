@@ -8,8 +8,8 @@ resources:
 #   - path: deployment.yaml
 #     target:
 #       kind: Deployment
-configMapGenerator:
-  - name: bind9-configmap
-    files:
-      - config/named.conf
-      - config/schreibernet.dev.zone
+# configMapGenerator:
+#   - name: bind9-configmap
+#     files:
+#       - config/named.conf
+#       - config/schreibernet.dev.zone
