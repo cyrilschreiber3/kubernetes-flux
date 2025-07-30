@@ -6,13 +6,7 @@ metadata:
   namespace: bind9
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: bind9
   template:
-    metadata:
-      labels:
-        app: bind9
     spec:
       volumes:
         - name: bind9-mount
