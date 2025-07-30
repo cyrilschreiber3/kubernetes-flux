@@ -1,5 +1,0 @@
-longhornUI:
-  replicas: 1
-
-networkPolicies:
-  enabled: false
