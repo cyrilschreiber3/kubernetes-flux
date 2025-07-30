@@ -11,4 +11,5 @@ spec:
     kind: ClusterIssuer
   commonName: schreibernet.dev
   dnsNames:
+    - schreibernet.dev
     - longhorn.vanguard-kc-13-vip.schreibernet.dev
