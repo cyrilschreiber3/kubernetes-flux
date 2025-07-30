@@ -15,11 +15,3 @@ spec:
         name: longhorn-repo
       version: v1.9.1
       interval: 12h
-      valuesFiles:
-        - helmvalues.yaml
-        # - ../../vanguard/longhorn/helmvalues.yaml
-      ignoreMissingValuesFiles: true
-
-  values:
-    networkPolicies:
-      enabled: false
