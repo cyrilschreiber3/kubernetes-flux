@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bind9-deployment
+  namespace: bind9
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bind9
+  template:
+    metadata:
+      labels:
+        app: bind9
+    spec:
+      volume:
+        - name: bind9-mount
+          configMap:
+            name: bind9-configmap-generator
+            items:
+              - key: config/named.conf
+                path: named.conf
+              - key: config/schreibernet.dev.zone
+                path: zones/schreibernet.dev.zone

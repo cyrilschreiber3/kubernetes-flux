@@ -1,0 +1,19 @@
+$TTL 86400
+
+; Dont forget to increment the serial number after making changes!
+
+$ORIGIN schreibernet.dev.
+@                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
+                                                    2025073000 ; serial
+                                                    12h        ; refresh
+                                                    15m        ; retry
+                                                    3w         ; expire
+                                                    86400      ; minimum
+                                                )
+@                               IN      NS      ns.schreibernet.dev.
+ns                              IN      A       10.1.1.142
+
+; -- A records for hosts in the network --
+
+mercury-fs-01                   IN      A       10.1.1.20
+kraken-dh-01                    IN      A       10.1.1.21
