@@ -30,3 +30,8 @@ spec:
         - name: bind9-mount
           configMap:
             name: bind9-configmap
+            items:
+              - key: named.conf
+                path: named.conf
+              - key: schreibernet.dev.zone
+                path: zones/schreibernet.dev.zone

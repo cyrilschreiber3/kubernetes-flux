@@ -4,10 +4,10 @@ namespace: bind9
 resources:
   - ../../base/bind9
   - service.yaml
-patches:
-  - path: deployment.yaml
-    target:
-      kind: Deployment
+# patches:
+#   - path: deployment.yaml
+#     target:
+#       kind: Deployment
 configMapGenerator:
   - name: bind9-configmap
     files:
