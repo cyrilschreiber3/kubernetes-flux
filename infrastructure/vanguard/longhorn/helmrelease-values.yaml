@@ -9,5 +9,11 @@ spec:
     spec:
       version: v1.9.1
   values:
+    defaultSettings:
+      allowCollectingLonghornUsageMetrics: false
+    defaultBackupStore:
+      backupTarget: nfs://10.1.1.20:/mnt/Vault/VaultData/Backups/4.App_Backups/Longhorn
     longhornUI:
       replicas: 1
+    ingress:
+      enabled: false
