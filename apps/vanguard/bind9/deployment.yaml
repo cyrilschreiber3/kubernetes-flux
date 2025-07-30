@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: bind9-mount
           configMap:
-            name: bind9-configmap-generator
+            name: bind9-configmap
             items:
               - key: config/named.conf
                 path: named.conf
