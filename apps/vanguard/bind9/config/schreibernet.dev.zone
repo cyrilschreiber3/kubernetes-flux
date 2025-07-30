@@ -4,16 +4,65 @@ $TTL 86400
 
 $ORIGIN schreibernet.dev.
 @                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
-                                                    2025073000 ; serial
-                                                    12h        ; refresh
-                                                    15m        ; retry
-                                                    3w         ; expire
-                                                    86400      ; minimum
+                                                    2025073100 ; serial
+                                                    10800      ; refresh
+                                                    3600       ; retry
+                                                    605800     ; expire
+                                                    3600       ; minimum
                                                 )
 @                               IN      NS      ns.schreibernet.dev.
 ns                              IN      A       10.1.1.142
 
 ; -- A records for hosts in the network --
 
+; Hosts
+bengal-gw-01                    IN      A       10.1.1.1
+apollo-sw-01                    IN      A       10.1.1.2
+razor-sw-02                     IN      A       10.1.1.3
+andromeda-sw-03                 IN      A       10.1.1.4
+inferno-ap-01                   IN      A       10.1.1.10
 mercury-fs-01                   IN      A       10.1.1.20
 kraken-dh-01                    IN      A       10.1.1.21
+idris-hv-01                     IN      A       10.1.1.22
+mantis-dns-02                   IN      A       192.168.1.13
+gladiator-dh-02                 IN      A       10.1.1.24
+pegasus-hv-02                   IN      A       10.1.1.25
+harbinger-kn-01                 IN      A       10.1.1.26
+hoplite-kn-02                   IN      A       10.1.1.27
+warden-kn-03                    IN      A       10.1.1.28
+; VMs
+polaris-dc-01                   IN      A       10.1.1.50
+sentinel-dns-01                 IN      A       10.1.1.51
+sabre-dns-03                    IN      A       10.1.1.52
+wildfire-pxy-01                 IN      A       10.1.1.53
+hearseeker-pxy-02               IN      A       10.1.1.54
+tracker-pxy-03                  IN      A       10.1.1.55
+ghost-pxy-04                    IN      A       10.1.1.56
+prowler-gsn-01                  IN      A       10.1.1.57
+freelancer-cld-01               IN      A       10.1.1.58
+galaxy-rmm-01                   IN      A       10.1.1.59
+dragonfly-mda-01                IN      A       10.1.1.60
+gemini-bak-01                   IN      A       10.1.1.61
+endeavor-dev-01                 IN      A       10.1.1.62
+crucible-pro-01                 IN      A       10.1.1.63
+; Management
+mercury-fs-01-ipmi              IN      A       10.1.1.80
+kraken-dh-01-ipmi               IN      A       10.1.1.81
+mercury-fs-01-mgmt              IN      A       10.1.1.82
+kraken-dh-01-mgmt               IN      A       10.1.1.83
+idris-hv-01-mgmt                IN      A       10.1.1.84
+gladiator-dh-02-mgmt            IN      A       10.1.1.85
+pegasus-hv-02-mgmt              IN      A       10.1.1.86
+; VIPs
+defender-dns-12-vip             IN      A       10.1.1.120
+hornet-pxy-12-vip               IN      A       10.1.1.121
+lighting-pxy-34-vip             IN      A       10.1.1.122
+vanguard-kc-13-mgmt             IN      A       10.1.1.123
+vanguard-kc-13-vip              IN      A       10.1.1.140
+; Other
+origin-cl-05                    IN      A       10.1.1.141
+scorpius-cl-01                  IN      A       192.168.1.69
+
+; vanguard-kc-13
+$ORIGIN schreibernet.dev.
+*.vanguard-kc-13-mgmt           IN      CNAME   vanguard-kc-13-mgmt.schreibernet.dev.
