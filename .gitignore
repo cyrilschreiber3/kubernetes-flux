@@ -1,3 +1,5 @@
 # Kubernetes configuration files
 .kube/*
 !.kube/.gitkeep
+
+*.decrypted~*
