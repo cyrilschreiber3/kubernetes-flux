@@ -3,6 +3,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/longhorn
+  - ../../base/longhorn/default-jobs/backup-create.recurring-job.yaml
+  - ../../base/longhorn/default-jobs/snapshot-cleanup.recurring-job.yaml
+  - ../../base/longhorn/default-jobs/snapshot-create.recurring-job.yaml
+  - ../../base/longhorn/default-jobs/trim-filesystem.recurring-job.yaml
   - dashboard/basicauth-middleware.yaml
   - dashboard/certificate.yaml
   - dashboard/ingress.yaml

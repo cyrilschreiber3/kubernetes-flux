@@ -1,0 +1,13 @@
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: default-snapshot-create
+  namespace: longhorn-system
+spec:
+  name: default-snapshot-create
+  task: snapshot
+  retain: 7
+  concurrency: 1
+  cron: 0 1 * * *
+  groups:
+    - default
