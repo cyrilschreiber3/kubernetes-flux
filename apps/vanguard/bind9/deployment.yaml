@@ -14,7 +14,7 @@ spec:
       labels:
         app: bind9
     spec:
-      volume:
+      volumes:
         - name: bind9-mount
           configMap:
             name: bind9-configmap-generator
