@@ -28,6 +28,5 @@ spec:
               mountPath: /etc/bind
       volumes:
         - name: bind9-mount
-          # emptyDir: {}
           configMap:
             name: bind9-configmap

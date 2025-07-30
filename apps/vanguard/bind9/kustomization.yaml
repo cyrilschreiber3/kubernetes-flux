@@ -4,12 +4,12 @@ namespace: bind9
 resources:
   - ../../base/bind9
   - service.yaml
-# patches:
-#   - path: deployment.yaml
-#     target:
-#       kind: Deployment
-# configMapGenerator:
-#   - name: bind9-configmap
-#     files:
-#       - config/named.conf
-#       - config/schreibernet.dev.zone
+patches:
+  - path: deployment.yaml
+    target:
+      kind: Deployment
+configMapGenerator:
+  - name: bind9-configmap
+    files:
+      - config/named.conf
+      - config/schreibernet.dev.zone
