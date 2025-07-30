@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: bind-service
-  namespace: dns-server-bind
+  namespace: bind9
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.1.1.142
