@@ -13,7 +13,7 @@ spec:
           configMap:
             name: bind9-configmap
             items:
-              - key: config/named.conf
+              - key: named.conf
                 path: named.conf
-              - key: config/schreibernet.dev.zone
+              - key: schreibernet.dev.zone
                 path: zones/schreibernet.dev.zone
