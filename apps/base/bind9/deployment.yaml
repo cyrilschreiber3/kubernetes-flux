@@ -23,9 +23,9 @@ spec:
               protocol: TCP
             - containerPort: 53
               protocol: UDP
-          volumeMounts:
-            - name: bind9-mount
-              mountPath: /etc/bind
+          # volumeMounts:
+          #   - name: bind9-mount
+          #     mountPath: /etc/bind
       volumes:
         - name: bind9-mount
           emptyDir: {}
