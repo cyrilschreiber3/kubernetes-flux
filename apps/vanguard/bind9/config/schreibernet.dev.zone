@@ -56,13 +56,133 @@ pegasus-hv-02-mgmt              IN      A       10.1.1.86
 ; VIPs
 defender-dns-12-vip             IN      A       10.1.1.120
 hornet-pxy-12-vip               IN      A       10.1.1.121
-lighting-pxy-34-vip             IN      A       10.1.1.122
+lightning-pxy-34-vip            IN      A       10.1.1.122
 vanguard-kc-13-mgmt             IN      A       10.1.1.123
 vanguard-kc-13-vip              IN      A       10.1.1.140
 ; Other
-origin-cl-05                    IN      A       10.1.1.141
+origin-cl-05                    IN      A       10.1.2.10
+bengal-gw-01-wan                IN      A       192.168.1.2
 scorpius-cl-01                  IN      A       192.168.1.69
 
-; vanguard-kc-13
-$ORIGIN schreibernet.dev.
+; SRV for LDAP
+; TODO: Add the correct srv records for the LDAP service
+
+; -- CNAME records for webapps --
+
+; hornet-pxy-12-VIP
+backup                          IN      CNAME   hornet-pxy-12-vip.schreibernet.dev.
+; lightning-pxy-34-vip
+agent.zabbix                    IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+api                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+changedetection                 IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+dashboard                       IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+ddns                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+grafana                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+homebridge                      IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+immichpowertools                IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+influxdb                        IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+lidarr                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+mesh                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+nzbget                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+plex                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+portainer                       IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+prometheus                      IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+prowlarr                        IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+radarr                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+rmm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+s3-admin                        IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+semaphore                       IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sonarr                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+speedtest                       IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+ui                              IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+uptime                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+zabbix                          IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+ ; vanguard-kc-13-mgmt
 *.vanguard-kc-13-mgmt           IN      CNAME   vanguard-kc-13-mgmt.schreibernet.dev.
+
+$ORIGIN bengal-gw-01.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN mercury-fs-01.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+arm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+explorer                        IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+ipmi                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+kvm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN kraken-dh-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+ipmi                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+kvm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN idris-hv-01.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+kvm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN mantis-dns-02.schriebernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN gladiator-dh-02.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN pegasus-hv-02.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+kvm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN harbinger-kn-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN hoplite-kn-02.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN warden-kn-03.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN polaris-dc-01.schreibernet.dev.
+
+$ORIGIN sentinel-dns-01.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN sabre-dns-03.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN wildfire-pxy-01.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN hearseeker-pxy-02.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN tracker-pxy-03.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN ghost-pxy-04.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN prowler-gsn-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+wings                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN freelancer-cld-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+netxcloud-config                IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN galaxy-rmm-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN dragonfly-mda-01.schreibernet.dev.
+
+$ORIGIN gemini-bak-01.schreibernet.dev.
+
+$ORIGIN endeavor-dev-01.schreibernet.dev.
+
+$ORIGIN crucible-pro-01.schreibernet.dev.
+cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+maas                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
