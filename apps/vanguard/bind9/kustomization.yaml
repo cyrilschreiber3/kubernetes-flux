@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: bind9
 resources:
   - ../../base/bind9
+  - secret-tsig.yaml
   - service.yaml
 patches:
   - path: deployment.yaml
@@ -12,4 +13,5 @@ configMapGenerator:
   - name: bind9-configmap
     files:
       - config/named.conf
+      - config/named.conf.key
       - config/schreibernet.dev.zone
