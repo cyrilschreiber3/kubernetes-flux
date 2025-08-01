@@ -14,7 +14,7 @@ rules:
   - apiGroups: ["discovery.k8s.io"]
     resources: ["endpointslices"]
     verbs: ["get", "watch", "list"]
-  - apiGroups: ["traefik.containo.us", "traefik.io"]
+  - apiGroups: ["traefik.io"]
     resources: ["ingressroutes", "ingressroutetcps", "ingressrouteudps"]
     verbs: ["get", "watch", "list"]
   - apiGroups: [""]
