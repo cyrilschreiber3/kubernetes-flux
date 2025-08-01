@@ -10,6 +10,7 @@ $ORIGIN schreibernet.dev.
                                                     605800     ; expire
                                                     3600       ; minimum
                                                 )
+@                               IN      A       10.1.1.1
 @                               IN      NS      ns.schreibernet.dev.
 ns                              IN      A       10.1.1.142
 
