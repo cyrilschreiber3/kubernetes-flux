@@ -63,6 +63,7 @@ spec:
             - --rfc2136-tsig-keyname=tsig-key
             - --rfc2136-tsig-axfr
             - --source=traefik-proxy
+            - --log-level=debug
           env:
             - name: EXTERNAL_DNS_RFC2136_TSIG_SECRET
               valueFrom:
