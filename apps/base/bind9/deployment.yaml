@@ -28,7 +28,7 @@ spec:
               mountPath: /var/cache/bind
               readOnly: false
             - name: bind9-journals-persistent
-              mountPath: /etc/bind/zones/journals
+              mountPath: /var/cache/bind/zones-journals
               readOnly: false
 
       volumes:
