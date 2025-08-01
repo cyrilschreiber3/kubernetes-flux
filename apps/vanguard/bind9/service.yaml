@@ -4,6 +4,8 @@ kind: Service
 metadata:
   name: bind-service
   namespace: bind9
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: dns.schreibernet.dev
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.1.1.142

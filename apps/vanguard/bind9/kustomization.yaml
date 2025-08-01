@@ -8,7 +8,15 @@ resources:
 patches:
   - path: deployment.yaml
     target:
+      name: bind9-deployment
       kind: Deployment
+  - target:
+      name: external-dns-deployment
+      kind: Deployment
+    patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --rfc2136-zone=cyrilschreiber.ch
 configMapGenerator:
   - name: bind9-configmap
     files:
