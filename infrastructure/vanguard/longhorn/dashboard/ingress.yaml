@@ -4,7 +4,7 @@ metadata:
   name: longhorn-dashboard
   namespace: longhorn-system
   annotations:
-    external-dns.alpha.kubernetes.io/target: test.schreibernet.dev
+    external-dns.alpha.kubernetes.io/target: vanguard-kc-13-vip.schreibernet.dev
     kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
