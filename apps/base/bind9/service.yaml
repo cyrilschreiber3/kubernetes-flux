@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9-primary-service
+  namespace: bind9
+spec:
+  selector:
+    app: bind9-primary
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9-secondary-service
+  namespace: bind9
+spec:
+  selector:
+    app: bind9-secondary
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9-loadbalancer-service
+  namespace: bind9
+spec:
+  selector:
+    bind9-role: # This will match both primary and secondary
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+  type: LoadBalancer

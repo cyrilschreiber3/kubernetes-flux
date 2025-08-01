@@ -1,18 +1,22 @@
 ---
+# Primary BIND9 Server (receives external-dns updates)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bind9-deployment
+  name: bind9-primary-deployment
   namespace: bind9
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
-      app: bind9
+      app: bind9-primary
   template:
     metadata:
       labels:
-        app: bind9
+        app: bind9-primary
+        bind9-role: primary
     spec:
       securityContext:
         fsGroup: 53
@@ -34,13 +38,59 @@ spec:
             - name: bind9-journals-persistent
               mountPath: /var/cache/bind/zones-journals
               readOnly: false
-
+          env:
+            - name: BIND9_ROLE
+              value: "primary"
       volumes:
         - name: bind9-data
           emptyDir: {}
         - name: bind9-journals-persistent
           persistentVolumeClaim:
             claimName: bind9-journals-pvc
+
+---
+# Secondary BIND9 Servers (receive zone transfers)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bind9-secondary-deployment
+  namespace: bind9
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bind9-secondary
+  template:
+    metadata:
+      labels:
+        app: bind9-secondary
+        bind9-role: secondary
+    spec:
+      securityContext:
+        fsGroup: 53
+        runAsUser: 53
+        runAsGroup: 53
+      containers:
+        - name: bind9
+          image: internetsystemsconsortium/bind9:9.20
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 53
+              protocol: TCP
+            - containerPort: 53
+              protocol: UDP
+          volumeMounts:
+            - name: bind9-data
+              mountPath: /var/cache/bind
+              readOnly: false
+          env:
+            - name: BIND9_ROLE
+              value: "secondary"
+            - name: PRIMARY_DNS_SERVER
+              value: "bind9-primary-service.bind9.svc.cluster.local"
+      volumes:
+        - name: bind9-data
+          emptyDir: {}
 
 ---
 apiVersion: apps/v1
@@ -69,7 +119,6 @@ spec:
             - --provider=rfc2136
             - --rfc2136-host=10.1.1.142
             - --rfc2136-port=53
-            - --rfc2136-zone=schreibernet.dev
             - --rfc2136-tsig-secret-alg=hmac-sha256
             - --rfc2136-tsig-keyname=tsig-key
             - --rfc2136-tsig-axfr

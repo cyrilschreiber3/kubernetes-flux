@@ -4,21 +4,36 @@ namespace: bind9
 resources:
   - ../../base/bind9
   - secret-tsig.yaml
-  - service.yaml
+  # - service.yaml
 patches:
   - path: deployment.yaml
     target:
       name: bind9-deployment
       kind: Deployment
   - target:
+      name: bind9-loadbalancer-service
+      kind: Service
+    patch: |
+      - op: add
+        path: /metadata/annotations/external-dns.alpha.kubernetes.io/hostname:
+        value: dns.schreibernet.dev
+      - op: replace
+        path: /spec/loadBalancerIP
+        value: 10.1.1.142
+  - target:
       name: external-dns-deployment
       kind: Deployment
     patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --rfc2136-zone=schreibernet.dev
       - op: add
         path: /spec/template/spec/containers/0/args/-
         value: --rfc2136-zone=cyrilschreiber.ch
 configMapGenerator:
   - name: bind9-configmap
     files:
-      - config/named.conf
+      # - config/named.conf
+      - config/named-primary.conf
+      - config/named-secondary.conf
       - config/schreibernet.dev.zone
