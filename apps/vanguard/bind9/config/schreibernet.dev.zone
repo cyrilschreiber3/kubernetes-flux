@@ -121,7 +121,7 @@ $ORIGIN idris-hv-01.schreibernet.dev.
 admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 kvm                             IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 
-$ORIGIN mantis-dns-02.schriebernet.dev.
+$ORIGIN mantis-dns-02.schreibernet.dev.
 admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
