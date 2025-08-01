@@ -23,3 +23,11 @@ spec:
               protocol: TCP
             - containerPort: 53
               protocol: UDP
+          volumeMounts:
+            - name: bind9-data
+              mountPath: /var/cache/bind
+              readOnly: false
+
+      volumes:
+        - name: bind9-data
+          emptyDir: {}
