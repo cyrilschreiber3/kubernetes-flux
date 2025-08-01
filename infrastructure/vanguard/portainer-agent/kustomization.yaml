@@ -2,4 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/portainer-agent/
-  - service.yaml
+patches:
+  - target:
+      name: portainer-agent
+      kind: Service
+    patch: |
+      - op: add
+        path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
+        value: portainer-agent.vanguard-kc-13-vip.schreibernet.dev
+      - op: add
+        path: /spec/loadBalancerIP
+        value: 10.1.1.141
