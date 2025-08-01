@@ -14,6 +14,10 @@ spec:
       labels:
         app: bind9
     spec:
+      securityContext:
+        fsGroup: 53
+        runAsUser: 53
+        runAsGroup: 53
       containers:
         - name: bind9
           image: internetsystemsconsortium/bind9:9.20
