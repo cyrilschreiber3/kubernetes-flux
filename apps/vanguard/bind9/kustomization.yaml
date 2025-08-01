@@ -18,16 +18,22 @@ patches:
       kind: Service
     patch: |
       - op: add
+        path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
+        value: dns-primary.vanguard-kc-13-vip.schreibernet.dev
+      - op: add
+        path: /spec/loadBalancerIP
+        value: 10.1.1.143
+      - op: add
         path: /spec/clusterIP
-        value: 10.43.67.211
+        value: 10.43.1.143
   - target:
       name: bind9-loadbalancer-service
       kind: Service
     patch: |
       - op: add
         path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
-        value: dns.schreibernet.dev
-      - op: replace
+        value: dns.vanguard-kc-13-vip.schreibernet.dev
+      - op: add
         path: /spec/loadBalancerIP
         value: 10.1.1.142
   - target:
