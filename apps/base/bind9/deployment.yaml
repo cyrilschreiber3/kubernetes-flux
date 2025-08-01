@@ -27,10 +27,16 @@ spec:
             - name: bind9-data
               mountPath: /var/cache/bind
               readOnly: false
+            - name: bind9-journals-persistent
+              mountPath: /etc/bind/zones/journals
+              readOnly: false
 
       volumes:
         - name: bind9-data
           emptyDir: {}
+        - name: bind9-journals-persistent
+          persistentVolumeClaim:
+            claimName: bind9-journals-pvc
 
 ---
 apiVersion: apps/v1
