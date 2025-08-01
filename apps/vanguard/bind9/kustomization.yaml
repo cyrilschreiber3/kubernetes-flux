@@ -15,7 +15,7 @@ patches:
       kind: Service
     patch: |
       - op: add
-        path: /metadata/annotations/external-dns.alpha.kubernetes.io/hostname:
+        path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
         value: dns.schreibernet.dev
       - op: replace
         path: /spec/loadBalancerIP
