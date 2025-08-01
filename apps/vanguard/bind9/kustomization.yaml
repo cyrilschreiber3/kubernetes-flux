@@ -13,5 +13,4 @@ configMapGenerator:
   - name: bind9-configmap
     files:
       - config/named.conf
-      - config/named.conf.key
       - config/schreibernet.dev.zone
