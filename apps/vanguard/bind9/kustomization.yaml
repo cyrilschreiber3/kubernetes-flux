@@ -4,7 +4,6 @@ namespace: bind9
 resources:
   - ../../base/bind9
   - secret-tsig.yaml
-  # - service.yaml
 patches:
   - path: deployment-primary.yaml
     target:
@@ -44,7 +43,6 @@ patches:
 configMapGenerator:
   - name: bind9-configmap
     files:
-      # - config/named.conf
       - config/named-primary.conf
       - config/named-secondary.conf
       - config/schreibernet.dev.zone
