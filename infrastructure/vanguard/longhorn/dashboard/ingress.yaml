@@ -4,6 +4,7 @@ metadata:
   name: longhorn-dashboard
   namespace: longhorn-system
   annotations:
+    external-dns.alpha.kubernetes.io/target: test.schreibernet.dev
     kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
