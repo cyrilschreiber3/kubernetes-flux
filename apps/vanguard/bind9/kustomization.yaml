@@ -6,9 +6,13 @@ resources:
   - secret-tsig.yaml
   # - service.yaml
 patches:
-  - path: deployment.yaml
+  - path: deployment-primary.yaml
     target:
-      name: bind9-deployment
+      name: bind9-primary-deployment
+      kind: Deployment
+  - path: deployment-secondary.yaml
+    target:
+      name: bind9-secondary-deployment
       kind: Deployment
   - target:
       name: bind9-loadbalancer-service
