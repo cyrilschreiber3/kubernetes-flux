@@ -56,7 +56,7 @@ spec:
             - --txt-prefix=external-dns-
             - --txt-owner-id=k8s
             - --provider=rfc2136
-            - --rfc2136-host=bind-service
+            - --rfc2136-host=10.1.1.142
             - --rfc2136-port=53
             - --rfc2136-zone=schreibernet.dev
             - --rfc2136-tsig-secret-alg=hmac-sha256
