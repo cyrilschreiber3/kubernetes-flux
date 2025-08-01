@@ -11,11 +11,12 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: bind9-primary
+      app: bind9
+      bind9-role: primary
   template:
     metadata:
       labels:
-        app: bind9-primary
+        app: bind9
         bind9-role: primary
     spec:
       securityContext:
@@ -59,11 +60,12 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: bind9-secondary
+      app: bind9
+      bind9-role: secondary
   template:
     metadata:
       labels:
-        app: bind9-secondary
+        app: bind9
         bind9-role: secondary
     spec:
       securityContext:

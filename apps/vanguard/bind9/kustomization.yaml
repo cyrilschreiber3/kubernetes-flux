@@ -15,6 +15,13 @@ patches:
       name: bind9-secondary-deployment
       kind: Deployment
   - target:
+      name: bind9-primary-service
+      kind: Service
+    patch: |
+      - op: add
+        path: /spec/clusterIP
+        value: 10.43.67.211
+  - target:
       name: bind9-loadbalancer-service
       kind: Service
     patch: |

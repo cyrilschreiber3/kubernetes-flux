@@ -6,7 +6,8 @@ metadata:
   namespace: bind9
 spec:
   selector:
-    app: bind9-primary
+    app: bind9
+    bind9-role: primary
   ports:
     - name: dns-tcp
       port: 53
@@ -24,7 +25,8 @@ metadata:
   namespace: bind9
 spec:
   selector:
-    app: bind9-secondary
+    app: bind9
+    bind9-role: secondary
   ports:
     - name: dns-tcp
       port: 53
@@ -42,7 +44,7 @@ metadata:
   namespace: bind9
 spec:
   selector:
-    bind9-role: # This will match both primary and secondary
+    app: bind9
   ports:
     - name: dns-tcp
       port: 53
