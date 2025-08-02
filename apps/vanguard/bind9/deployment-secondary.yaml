@@ -25,7 +25,7 @@ spec:
                 path: named.conf
         - name: bind9-secrets
           secret:
-            secretName: bind9-key-secret
+            secretName: bind9-secrets
             items:
               - key: named.conf.key
                 path: named.conf.key
