@@ -51,5 +51,5 @@ configMapGenerator:
     files:
       - config/named-primary.conf
       - config/named-secondary.conf
-      - config/1.1.10.in-addr.arpa.zone
-      - config/schreibernet.dev.zone
+      - config/zones/1.1.10.in-addr.arpa.zone
+      - config/zones/schreibernet.dev.zone
