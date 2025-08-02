@@ -4,7 +4,7 @@ $TTL 86400
 
 $ORIGIN schreibernet.dev.
 @                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
-                                                    2025073100 ; serial
+                                                    2025080204 ; serial
                                                     10800      ; refresh
                                                     3600       ; retry
                                                     605800     ; expire
@@ -66,7 +66,7 @@ bengal-gw-01-wan                IN      A       192.168.1.2
 scorpius-cl-01                  IN      A       192.168.1.69
 
 ; SRV for LDAP
-; TODO: Add the correct srv records for the LDAP service
+$INCLUDE /etc/bind/zones/schreibernet.dev-ldap.zone
 
 ; -- CNAME records for webapps --
 

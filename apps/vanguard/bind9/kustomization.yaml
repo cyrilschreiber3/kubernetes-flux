@@ -53,3 +53,4 @@ configMapGenerator:
       - config/named-secondary.conf
       - config/zones/1.1.10.in-addr.arpa.zone
       - config/zones/schreibernet.dev.zone
+      - config/zones/schreibernet.dev-ldap.zone
