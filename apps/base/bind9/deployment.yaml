@@ -132,5 +132,5 @@ spec:
             - name: EXTERNAL_DNS_RFC2136_TSIG_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: bind9-key-secret
+                  name: bind9-secrets
                   key: tsig-key
