@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: bind9
 resources:
   - ../../base/bind9
-  - secret-tsig.yaml
+  - secrets.yaml
 patches:
   - path: deployment-primary.yaml
     target:
