@@ -4,6 +4,7 @@ metadata:
   name: traefik-dashboard
   namespace: traefik
   annotations:
+    external-dns.alpha.kubernetes.io/target: vanguard-kc-13-vip.schreibernet.dev
     kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
