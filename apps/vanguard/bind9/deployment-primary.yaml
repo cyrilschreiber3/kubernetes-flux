@@ -37,5 +37,7 @@ spec:
           configMap:
             name: bind9-configmap
             items:
+              - key: 1.1.10.in-addr.arpa.zone
+                path: 1.1.10.in-addr.arpa.zone
               - key: schreibernet.dev.zone
                 path: schreibernet.dev.zone

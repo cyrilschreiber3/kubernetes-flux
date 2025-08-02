@@ -1,0 +1,65 @@
+$TTL 86400
+
+; Dont forget to increment the serial number after making changes!
+
+$ORIGIN 1.1.10.in-addr.arpa.
+@                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
+                                                    2025080200 ; serial
+                                                    10800      ; refresh
+                                                    3600       ; retry
+                                                    605800     ; expire
+                                                    3600       ; minimum
+                                                )
+@                               IN      NS      ns.schreibernet.dev.
+
+; -- PTR records for reverse DNS --
+
+; Hosts
+1                               IN      PTR     bengal-gw-01.schreibernet.dev.
+2                               IN      PTR     apollo-sw-01.schreibernet.dev.
+3                               IN      PTR     razor-sw-02.schreibernet.dev.
+4                               IN      PTR     andromeda-sw-03.schreibernet.dev.
+10                              IN      PTR     inferno-ap-01.schreibernet.dev.
+20                              IN      PTR     mercury-fs-01.schreibernet.dev.
+21                              IN      PTR     kraken-dh-01.schreibernet.dev.
+22                              IN      PTR     idris-hv-01.schreibernet.dev.
+24                              IN      PTR     gladiator-dh-02.schreibernet.dev.
+25                              IN      PTR     pegasus-hv-02.schreibernet.dev.
+26                              IN      PTR     harbinger-kn-01.schreibernet.dev.
+27                              IN      PTR     hoplite-kn-02.schreibernet.dev.
+28                              IN      PTR     warden-kn-03.schreibernet.dev.
+
+; VMs
+50                              IN      PTR     polaris-dc-01.schreibernet.dev.
+51                              IN      PTR     sentinel-dns-01.schreibernet.dev.
+52                              IN      PTR     sabre-dns-03.schreibernet.dev.
+53                              IN      PTR     wildfire-pxy-01.schreibernet.dev.
+54                              IN      PTR     hearseeker-pxy-02.schreibernet.dev.
+55                              IN      PTR     tracker-pxy-03.schreibernet.dev.
+56                              IN      PTR     ghost-pxy-04.schreibernet.dev.
+57                              IN      PTR     prowler-gsn-01.schreibernet.dev.
+58                              IN      PTR     freelancer-cld-01.schreibernet.dev.
+59                              IN      PTR     galaxy-rmm-01.schreibernet.dev.
+60                              IN      PTR     dragonfly-mda-01.schreibernet.dev.
+61                              IN      PTR     gemini-bak-01.schreibernet.dev.
+62                              IN      PTR     endeavor-dev-01.schreibernet.dev.
+63                              IN      PTR     crucible-pro-01.schreibernet.dev.
+
+; Management
+80                              IN      PTR     mercury-fs-01-ipmi.schreibernet.dev.
+81                              IN      PTR     kraken-dh-01-ipmi.schreibernet.dev.
+82                              IN      PTR     mercury-fs-01-mgmt.schreibernet.dev.
+83                              IN      PTR     kraken-dh-01-mgmt.schreibernet.dev.
+84                              IN      PTR     idris-hv-01-mgmt.schreibernet.dev.
+85                              IN      PTR     gladiator-dh-02-mgmt.schreibernet.dev.
+86                              IN      PTR     pegasus-hv-02-mgmt.schreibernet.dev.
+
+; VIPs
+120                             IN      PTR     defender-dns-12-vip.schreibernet.dev.
+121                             IN      PTR     hornet-pxy-12-vip.schreibernet.dev.
+122                             IN      PTR     lightning-pxy-34-vip.schreibernet.dev.
+123                             IN      PTR     vanguard-kc-13-mgmt.schreibernet.dev.
+140                             IN      PTR     vanguard-kc-13-vip.schreibernet.dev.
+
+; DNS
+142                             IN      PTR     ns.schreibernet.dev.
