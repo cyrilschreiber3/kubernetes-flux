@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bind9-primary-deployment
+  name: bind9-zone-updater
   namespace: bind9
 spec:
   template:
