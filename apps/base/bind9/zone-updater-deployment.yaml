@@ -4,6 +4,9 @@ metadata:
   name: bind9-zone-updater
   namespace: bind9
 spec:
+  replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: zone-updater
