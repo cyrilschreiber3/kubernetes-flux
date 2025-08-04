@@ -5,4 +5,5 @@ resources:
   - longhorn
   - metallb
   - portainer-agent
+  - renovate
   - traefik

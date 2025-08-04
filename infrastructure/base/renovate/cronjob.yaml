@@ -1,0 +1,27 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  schedule: "@hourly"
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 10
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: renovate
+              image: renovate/renovate:41.52
+              args:
+                - cyrilschreiber3/kubernetes-flux
+
+              envFrom:
+                - secretRef:
+                    name: renovate-env
+                - configMapRef:
+                    name: renovate-configmap
+          restartPolicy: Never
