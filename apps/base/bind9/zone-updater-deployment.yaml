@@ -22,9 +22,13 @@ spec:
             - |
               echo "Zone update started at $(date)"
 
+              # Get servers addresses
+              primaryServer=$(nslookup bind9-primary-headless | grep Address | awk '{print $2}' | sed '1d')
+              secondaryServers=$(nslookup bind9-secondary-headless | grep Address | awk '{print $2}' | sed '1d')
+
               # Freeze all zones to prevent updates during copy
               echo "Freezing zones"
-              rndc freeze
+              rndc freeze -s $primaryServer
 
               # Copy the updated zone files
               cp -f /zones-git/*.zone /persistent
@@ -32,7 +36,7 @@ spec:
 
               # Thaw all zones to allow updates again
               echo "Thawing zones"
-              rndc thaw
+              rndc thaw -s $primaryServer
 
               echo "Zone update completed at $(date)"
 
@@ -40,7 +44,10 @@ spec:
               sleep 30
 
               # Refresh secondary Servers
-              # TODO: nslookup bind9-secondary-headless.bind9.svc.cluster.local
+              for ip in $secondaryServers; do
+                echo "Refreshing secondary server: $ip"
+                rndc refresh . -s $ip
+              done
 
               echo "The end..."
               while true; do
