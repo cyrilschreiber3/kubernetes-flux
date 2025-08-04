@@ -36,7 +36,7 @@ spec:
                 path: schreibernet.dev-ldap.zone
               - key: 1.1.10.in-addr.arpa.zone
                 path: 1.1.10.in-addr.arpa.zone
-        - name: bind9-secrets
+        - name: zones-secrets
           secret:
             secretName: bind9-secrets
             items:
