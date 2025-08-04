@@ -4,7 +4,7 @@ $TTL 86400
 
 $ORIGIN 1.1.10.in-addr.arpa.
 @                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
-                                                    2025080200 ; serial
+                                                    2025080400 ; serial
                                                     10800      ; refresh
                                                     3600       ; retry
                                                     605800     ; expire

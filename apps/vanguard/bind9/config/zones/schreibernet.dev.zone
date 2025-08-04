@@ -4,7 +4,7 @@ $TTL 86400
 
 $ORIGIN schreibernet.dev.
 @                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
-                                                    2025080204 ; serial
+                                                    2025080400 ; serial
                                                     300        ; refresh
                                                     3600       ; retry
                                                     605800     ; expire
