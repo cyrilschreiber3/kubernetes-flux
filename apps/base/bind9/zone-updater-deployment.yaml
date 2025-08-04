@@ -26,15 +26,33 @@ spec:
               primaryServer=$(nslookup bind9-primary-headless | grep Address | awk '{print $2}' | sed '1d')
               secondaryServers=$(nslookup bind9-secondary-headless | grep Address | awk '{print $2}' | sed '1d')
 
-              # Freeze all zones to prevent updates during copy
               echo "Freezing zones"
               rndc -s $primaryServer freeze
 
-              # Copy the updated zone files
+              echo "Copying files"
               cp -f /zones-git/*.zone /persistent
               cp -f /zones-git/secrets/*.zone /persistent
 
-              # Thaw all zones to allow updates again
+              echo "Updating serials"
+              for zoneFile in /persistent/*.zone; do
+                echo "Updating serial in $zoneFile"
+                # Update serial if SOA record exists
+                if grep "; serial" "$zoneFile"; then
+                  echo "Found serial on a separate line"
+                  echo "Updating serial in $zoneFile"
+                  serial=$(grep "; serial" "$zoneFile" | awk '{print $1}')
+                  newSerial=$(date +%s)
+                  sed -i "s/$serial ; serial/$newSerial ; serial/" "$zoneFile"
+                elif grep -q "SOA" "$zoneFile"; then
+                  echo "Found inline serial"
+                  serial=$(grep "SOA" "$zoneFile" | awk '{print $6}')
+                  newSerial=$(date +%s)
+                  sed -i "s/\(SOA.*\) $serial/\1 $newSerial/" "$zoneFile"
+                else
+                  echo "No serial found"
+                fi
+              done
+
               echo "Thawing zones"
               rndc -s $primaryServer thaw
 
@@ -43,9 +61,8 @@ spec:
               # Sleep to wait for primary to restart
               sleep 30
 
-              # Refresh secondary Servers
               for ip in $secondaryServers; do
-                echo "Refreshing secondary server: $ip"
+                echo "Reloading secondary server: $ip"
                 rndc -s $ip reload
               done
 
