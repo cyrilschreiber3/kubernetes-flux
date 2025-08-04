@@ -1,10 +1,9 @@
 $TTL 86400
 
-; Dont forget to increment the serial number after making changes!
 
 $ORIGIN schreibernet.dev.
 @                               IN      SOA     ns.schreibernet.dev. admin.schreibernet.dev. (
-                                                    2025080400 ; serial
+                                                    0000000000 ; serial (Auto updated by install script)
                                                     300        ; refresh
                                                     3600       ; retry
                                                     605800     ; expire

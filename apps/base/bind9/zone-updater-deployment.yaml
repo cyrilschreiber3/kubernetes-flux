@@ -37,7 +37,7 @@ spec:
               for zoneFile in /persistent/*.zone; do
                 echo "Updating serial in $zoneFile"
                 # Update serial if SOA record exists
-                if grep "; serial" "$zoneFile"; then
+                if grep -q "; serial" "$zoneFile"; then
                   echo "Found serial on a separate line"
                   echo "Updating serial in $zoneFile"
                   serial=$(grep "; serial" "$zoneFile" | awk '{print $1}')
