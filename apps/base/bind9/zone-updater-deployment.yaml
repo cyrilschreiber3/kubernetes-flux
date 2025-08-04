@@ -28,7 +28,7 @@ spec:
 
               # Freeze all zones to prevent updates during copy
               echo "Freezing zones"
-              rndc freeze -s $primaryServer
+              rndc -s $primaryServer freeze
 
               # Copy the updated zone files
               cp -f /zones-git/*.zone /persistent
@@ -36,7 +36,7 @@ spec:
 
               # Thaw all zones to allow updates again
               echo "Thawing zones"
-              rndc thaw -s $primaryServer
+              rndc -s $primaryServer thaw
 
               echo "Zone update completed at $(date)"
 
@@ -46,7 +46,7 @@ spec:
               # Refresh secondary Servers
               for ip in $secondaryServers; do
                 echo "Refreshing secondary server: $ip"
-                rndc refresh . -s $ip
+                rndc -s $ip reload
               done
 
               echo "The end..."
