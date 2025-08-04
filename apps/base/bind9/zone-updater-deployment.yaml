@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: updater
-          image: internetsystemsconsortium/bind9:9.20
+          image: internetsystemsconsortium/bind9:9.21
           imagePullPolicy: Always
           command:
             - /bin/sh
