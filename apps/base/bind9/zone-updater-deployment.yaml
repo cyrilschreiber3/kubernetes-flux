@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bind9-zone-updater
-  namespace: dns
+  namespace: bind9
 spec:
   selector:
     matchLabels:
@@ -15,6 +15,7 @@ spec:
       containers:
         - name: updater
           image: internetsystemsconsortium/bind9:9.20
+          imagePullPolicy: Always
           command:
             - /bin/sh
             - -c
