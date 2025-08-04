@@ -7,4 +7,4 @@ resources:
   - rbac.yaml
   - service.yaml
   - serviceaccount.yaml
-  - zone-updater-deplyoment.yaml
+  - zone-updater-deployment.yaml
