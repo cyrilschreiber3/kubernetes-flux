@@ -15,8 +15,6 @@ ns                              IN      A       10.1.1.142
 
 ; -- A records for hosts in the network --
 
-test                            IN      A       10.1.1.1
-
 ; Hosts
 bengal-gw-01                    IN      A       10.1.1.1
 apollo-sw-01                    IN      A       10.1.1.2

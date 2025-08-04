@@ -58,7 +58,7 @@ spec:
 
               echo "Zone update completed at $(date)"
 
-              # Sleep to wait for primary to restart
+              echo "Sleeping to wait for primary to restart"
               sleep 30
 
               for ip in $secondaryServers; do
