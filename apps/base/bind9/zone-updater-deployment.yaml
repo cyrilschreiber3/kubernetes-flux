@@ -41,8 +41,7 @@ spec:
               # Refresh secondary Servers
               # TODO: nslookup bind9-secondary-headless.bind9.svc.cluster.local
 
-              echo "Shutting down updater container"
-              exit 0
+              echo "The end..."
           volumeMounts:
             - name: bind9-data
               mountPath: /persistent
@@ -50,4 +49,3 @@ spec:
         - name: bind9-data
           persistentVolumeClaim:
             claimName: bind9-zone-pvc
-      restartPolicy: Never
