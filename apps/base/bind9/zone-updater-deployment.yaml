@@ -43,6 +43,9 @@ spec:
               # TODO: nslookup bind9-secondary-headless.bind9.svc.cluster.local
 
               echo "The end..."
+              while true; do
+              sleep 3600
+              done
           volumeMounts:
             - name: bind9-data
               mountPath: /persistent
