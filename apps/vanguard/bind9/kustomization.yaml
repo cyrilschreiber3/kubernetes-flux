@@ -15,7 +15,7 @@ patches:
       kind: Deployment
   - path: deployment-updater.yaml
     target:
-      name: bind9zone-updater
+      name: bind9-zone-updater
       kind: Deployment
   - target:
       name: bind9-primary-service
