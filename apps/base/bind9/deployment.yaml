@@ -25,7 +25,7 @@ spec:
         runAsGroup: 53
       containers:
         - name: bind9
-          image: internetsystemsconsortium/bind9:9.20
+          image: internetsystemsconsortium/bind9:9.21
           imagePullPolicy: Always
           ports:
             - containerPort: 53
@@ -78,7 +78,7 @@ spec:
         runAsGroup: 53
       containers:
         - name: bind9
-          image: internetsystemsconsortium/bind9:9.20
+          image: internetsystemsconsortium/bind9:9.21
           imagePullPolicy: Always
           ports:
             - containerPort: 53
