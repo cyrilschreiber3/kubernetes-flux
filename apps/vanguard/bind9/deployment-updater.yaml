@@ -13,6 +13,9 @@ spec:
             - name: bind9-config
               mountPath: /etc/bind
               readOnly: true
+            - name: bind9-secrets
+              mountPath: /etc/bind/secrets
+              readOnly: true
             - name: zones-configmap
               mountPath: /zones-git
               readOnly: true
@@ -40,5 +43,13 @@ spec:
           secret:
             secretName: bind9-secrets
             items:
+              - key: named.conf.key
+                path: named.conf.key
               - key: domainUUID
                 path: schreibernet.dev-ldap-secret.zone
+        - name: bind9-secrets
+          secret:
+            secretName: bind9-secrets
+            items:
+              - key: named.conf.key
+                path: named.conf.key
