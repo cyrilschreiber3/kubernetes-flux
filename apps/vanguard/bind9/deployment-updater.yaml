@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       containers:
-        - name: bind9
+        - name: updater
           volumeMounts:
             - name: bind9-config
               mountPath: /etc/bind
