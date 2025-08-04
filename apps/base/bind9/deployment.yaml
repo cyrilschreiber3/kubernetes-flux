@@ -32,12 +32,16 @@ spec:
               protocol: TCP
             - containerPort: 53
               protocol: UDP
+            - containerPort: 953
+              protocol: TCP
+            - containerPort: 953
+              protocol: UDP
           volumeMounts:
             - name: bind9-data
               mountPath: /var/cache/bind
               readOnly: false
-            - name: bind9-journals-persistent
-              mountPath: /var/cache/bind/zones-journals
+            - name: bind9-zone-persistent
+              mountPath: /etc/bind/zones
               readOnly: false
           env:
             - name: BIND9_ROLE
@@ -45,9 +49,9 @@ spec:
       volumes:
         - name: bind9-data
           emptyDir: {}
-        - name: bind9-journals-persistent
+        - name: bind9-zone-persistent
           persistentVolumeClaim:
-            claimName: bind9-journals-pvc
+            claimName: bind9-zone-pvc
 
 ---
 # Secondary BIND9 Servers (receive zone transfers)
@@ -80,6 +84,10 @@ spec:
             - containerPort: 53
               protocol: TCP
             - containerPort: 53
+              protocol: UDP
+            - containerPort: 953
+              protocol: TCP
+            - containerPort: 953
               protocol: UDP
           volumeMounts:
             - name: bind9-data

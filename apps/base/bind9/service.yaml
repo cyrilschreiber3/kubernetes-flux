@@ -21,6 +21,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: bind9-primary-headless
+  namespace: bind9
+spec:
+  selector:
+    app: bind9
+    bind9-role: primary
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+    - name: dnssec-tcp
+      port: 953
+      protocol: TCP
+    - name: dnssec-udp
+      port: 953
+      protocol: UDP
+  clusterIP: None
+
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: bind9-secondary-service
   namespace: bind9
 spec:
@@ -35,6 +60,31 @@ spec:
       port: 53
       protocol: UDP
   type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bind9-secondary-headless
+  namespace: bind9
+spec:
+  selector:
+    app: bind9
+    bind9-role: secondary
+  ports:
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+    - name: dns-udp
+      port: 53
+      protocol: UDP
+    - name: dnssec-tcp
+      port: 953
+      protocol: TCP
+    - name: dnssec-udp
+      port: 953
+      protocol: UDP
+  clusterIP: None
 
 ---
 apiVersion: v1

@@ -1,7 +1,7 @@
 ; -- SRV records for Active Directory / LDAP / Kerberos --
 
 ; Domain UUID
-$INCLUDE /etc/bind/secrets/schreibernet.dev-ldap-secret.zone
+$INCLUDE /etc/bind/zones/schreibernet.dev-ldap-secret.zone
 
 ; LDAP Service Records
 _ldap._tcp                                                  IN      SRV     0 5 389 polaris-dc-01.schreibernet.dev.

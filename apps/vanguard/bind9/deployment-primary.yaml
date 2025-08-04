@@ -17,9 +17,6 @@ spec:
             - name: bind9-secrets
               mountPath: /etc/bind/secrets
               readOnly: true
-            - name: bind9-zones
-              mountPath: /etc/bind/zones
-              readOnly: true
       volumes:
         - name: bind9-config
           configMap:
@@ -33,15 +30,3 @@ spec:
             items:
               - key: named.conf.key
                 path: named.conf.key
-              - key: domainUUID
-                path: schreibernet.dev-ldap-secret.zone
-        - name: bind9-zones
-          configMap:
-            name: bind9-configmap
-            items:
-              - key: 1.1.10.in-addr.arpa.zone
-                path: 1.1.10.in-addr.arpa.zone
-              - key: schreibernet.dev.zone
-                path: schreibernet.dev.zone
-              - key: schreibernet.dev-ldap.zone
-                path: schreibernet.dev-ldap.zone

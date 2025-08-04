@@ -13,6 +13,10 @@ patches:
     target:
       name: bind9-secondary-deployment
       kind: Deployment
+  - path: deployment-updater.yaml
+    target:
+      name: bind9zone-updater
+      kind: Deployment
   - target:
       name: bind9-primary-service
       kind: Service
@@ -51,6 +55,9 @@ configMapGenerator:
     files:
       - config/named-primary.conf
       - config/named-secondary.conf
+      - config/rndc.conf
+  - name: bind9-zones
+    files:
       - config/zones/1.1.10.in-addr.arpa.zone
       - config/zones/schreibernet.dev.zone
       - config/zones/schreibernet.dev-ldap.zone

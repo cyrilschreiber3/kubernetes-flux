@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bind9-zone-updater
+  namespace: dns
+spec:
+  selector:
+    matchLabels:
+      app: zone-updater
+  template:
+    metadata:
+      labels:
+        app: zone-updater
+    spec:
+      containers:
+        - name: updater
+          image: internetsystemsconsortium/bind9:9.20
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Zone update started at $(date)"
+
+              # Freeze all zones to prevent updates during copy
+              echo "Freezing zones"
+              rndc freeze
+
+              # Copy the updated zone files
+              cp -f /zones-git/*.zone /persistent
+              cp -f /zones-git/secrets/*.zone /persistent
+
+              # Thaw all zones to allow updates again
+              echo "Thawing zones"
+              rndc thaw
+
+              echo "Zone update completed at $(date)"
+
+              # Sleep to wait for primary to restart
+              sleep 30
+
+              # Refresh secondary Servers
+              # TODO: nslookup bind9-secondary-headless.bind9.svc.cluster.local
+
+              echo "Shutting down updater container"
+              exit 0
+          volumeMounts:
+            - name: bind9-data
+              mountPath: /persistent
+      volumes:
+        - name: bind9-data
+          persistentVolumeClaim:
+            claimName: bind9-zone-pvc
+      restartPolicy: Never
