@@ -1,8 +1,7 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "kubernetes": {
-    "fileMatch": [
-      "\\.yaml$"
-    ]
-  }
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [":dependencyDashboard", ":semanticPrefixFixDepsChoreOthers", "replacements:all", "workarounds:all"],
+	"kubernetes": {
+		"fileMatch": ["\\.yaml$"]
+	}
 }
