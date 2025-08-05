@@ -37,10 +37,15 @@ spec:
                       secretName: authentik-web-tls
         postgresql:
             enabled: true
+            persistence:
+                size: 3Gi
             auth:
                 password: ENC[AES256_GCM,data:/mN2l+nmM+zCMj8FCa0hIFc6C7tIYSC7bZu4YL5S4SkaVegvN50JBqsJ4ylm+TzlDkYNSCMmS93PjStoyrUiD8yVKoVNr/xy3g+Ieswqyog=,iv:UqXKkUhg6587S5nbe3Cx4k3mRdmvBItsTK8NzqYnZys=,tag:EFY8Qt/RWsshw6QgIgCc1A==,type:str]
         redis:
             enabled: true
+            master:
+                persistence:
+                    size: 1Gi
 sops:
     age:
         - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
@@ -70,8 +75,8 @@ sops:
             QVVhYjRRcWlxK3FXSFpBd3NwZmVSOTAKNVLLPEUpIYeW3+6coRtFmkqYg5Y2vbco
             nE5SAI4mMeEUSojTwklhCd1s2+oPifJAxCP9ejIwkrEC0DmER72fsQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-05T19:20:40Z"
-    mac: ENC[AES256_GCM,data:CrLAoH6zIue1dYcQm+Me8KxUQxqCssc8zu0W32DJBq+ksT+MBGWeeXxi/Tp8N+of09pEP7EMmL04f9X9V28ya+APBC21xPa+qDLNI2QvBKsaLs5kAXBqkD94mgYW/UpE4VSFwdMklUWzT2PdoxEZGNPdm+IMh9O7YE+4cipoCeg=,iv:1EzFlPf/4o+aZu2tSdLr91f3GsSxSQCkEBgpssC2G74=,tag:NIbTl9MZ00T4HNsPBZhNMQ==,type:str]
+    lastmodified: "2025-08-05T19:41:35Z"
+    mac: ENC[AES256_GCM,data:6TnUj1zaB8+MeJnx43KZhUl7KhH6bHx5B2VahICdwQd15cWZi3ZY6ohI2zMU1ZENg8x1wHAMF4bZXNxDLfKFdqSbKCc+q176JpaqGlTkQzXi9KfO3ZtbG3Z5U0JUXMspVg1yYwJh2tlVvCRruNl6Cnvw5nDooN0aFn+5Xuzz/MA=,iv:b24hlhozmr9iBy1bpHEZ4HlFXlKz3iCxt+kkDKUGhl4=,tag:SQjEyTe/LrjGVWt7tvmXZw==,type:str]
     encrypted_regex: ^(secret_key|password|email|hosts)$
     mac_only_encrypted: true
     version: 3.10.2

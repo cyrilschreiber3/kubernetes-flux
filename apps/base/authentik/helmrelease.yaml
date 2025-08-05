@@ -6,6 +6,7 @@ metadata:
   namespace: authentik
 spec:
   interval: 30m
+  releaseName: authentik
   chart:
     spec:
       chart: authentik
