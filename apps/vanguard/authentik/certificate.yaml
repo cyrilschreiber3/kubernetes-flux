@@ -1,0 +1,48 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+    name: authentik-web-cert
+    namespace: authentik
+spec:
+    secretName: authentik-web-tls
+    issuerRef:
+        name: letsencrypt-production
+        kind: ClusterIssuer
+    commonName: schreibernet.dev
+    dnsNames:
+        - ENC[AES256_GCM,data:ncxh1vgRtb/NQ/qPDH8DmWKy,iv:0xmRBLWODWgrrg0vXT3OGNuT/DyGQFwCb4G7v84Md7M=,tag:A9546kRpBoykprRJce2/yg==,type:str]
+        - ENC[AES256_GCM,data:PJMeMYx0A0Q+a4Gb8VEq/mIKDg==,iv:3uJelVr+1mwsDGfPk9RE0z/DSS14v8SIa+XNfGdHRno=,tag:Ae3zcMK28IQ9MxWW/SKpsQ==,type:str]
+sops:
+    age:
+        - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAvcGtkNGRhbzFNYVJ3MkRF
+            K1pzQWN4cVRkV3Q0T2hLRE9GdlE1Mld4amdrCldONnpWeUYxMUd0QVpCSDlXK2ow
+            aWZPZGQ2QU51Uk5SOG5yL09CeGdjdFEKLS0tIFNzVkx4NFBOdXdhVENXS1JoY1FJ
+            REl6MnFPaDRBeXNOUXh2NUJ4cnNxb00KqA9V6ewJccClqKNZmh0p7FT5jb/XLpSp
+            xljHe5cvFvokuKe5RLzrkmSSjlwUOQHw30AxzPRgiEFtBUQz90XcXQ==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA1YzgxYW1Rb3ovZENGc2s4
+            SU5aK1hrWUZoZkJYT2wvaU9HMjl3aGJmL1hBCldhMkFCcDN3dGZLZFZxQ09tRS8r
+            ZUphK2VUTENlTlpTNDFXVHNkRDJvZkkKLS0tIEJKcFBSZ3VBZHFDWndjYVVwMzQ4
+            N21hMXZ0VHdKbk9yWVpEbXk3OVV4djgKkx7txBca2tsh6WuKRuQ2FuqUVxRwxU3n
+            BgCLoVxvzxHCJ4S4mDMdlCPYtsbo84Hd7YiD9qVM8CocTukn3sDTRA==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtQ0ZrTE9JY1h6eTJRK2t6
+            K3ZCUS9HRGZhSjZ1OWxramVWU1hWRnBhOVQ4ClNISVFNQVhLOE5yazQ4em5xcm82
+            WllnbE5BZEN6YjZxZVZEd25PSGlrSWsKLS0tIHVNeVJIMUZJdmhFNHJhbnhMRjFh
+            SXJWWldvSlhabEFsbXNIczBFSVhHUEUK0PZqM6Gs1y4DHY68JguvUdIvNUqk23sx
+            V7lbSspB//gyUhmgMJmyIibknEUJ13qQ5dIIbPmyQVNngqR5uSdq6w==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-05T18:02:19Z"
+    mac: ENC[AES256_GCM,data:2vedQq7EeADt/qXuwtpWYnUlX8W30MEP/V6uNl6kSBB5hubLyFLbFzJHiYXBv6r3nGLiUtFyo8VzGYWznWcj+Z+oDy8fsD5oCWr4iXlYS5BX/LuqRMPEiq+pd2Bx/QnJfAyuxkrxaonGCyqqEjKsiSCmJ9PUIPdRglgLk1d+TgI=,iv:njPJ3OzUfOdZdyLM/p38SpKb3qATqGlSP1GmCui9teM=,tag:VBy1k99Q5o6BvllK3BV9mA==,type:str]
+    encrypted_regex: ^(dnsNames)$
+    mac_only_encrypted: true
+    version: 3.10.2

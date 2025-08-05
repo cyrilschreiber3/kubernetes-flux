@@ -47,9 +47,6 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/args/-
         value: --rfc2136-zone=schreibernet.dev
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --rfc2136-zone=cyrilschreiber.ch
 configMapGenerator:
   - name: bind9-configmap
     files:

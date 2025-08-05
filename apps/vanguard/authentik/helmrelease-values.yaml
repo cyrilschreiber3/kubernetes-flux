@@ -1,0 +1,77 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: authentik-release
+    namespace: authentik-system
+    annotations:
+        external-dns.alpha.kubernetes.io/hostname: auth.schreibernet.dev
+        external-dns.alpha.kubernetes.io/target: vanguard-kc-13-vip.schreibernet.dev
+spec:
+    chart:
+        spec:
+            version: 2025.6.4
+    values:
+        authentik:
+            secret_key: ENC[AES256_GCM,data:BsL74owfS6l7+bfRhV7ZckrdP/Q+NkTmfh8DXP/i/Q4UXmiANaEzxgjXtf22tDGEfhCopzpuqII4QZ16V2n1rJs52kpsoQs4/o6xSv8hOxI=,iv:InUTu/yUNU/hwOo5i70dFXA/rEuCJZzqG7ha87fePYo=,tag:sQHL/o9HTLeY/2bYmQ7DmA==,type:str]
+            postgresql:
+                password: ENC[AES256_GCM,data:odFatDT+9yfGMpJwLo6dzktlOP0llTx7pnn9N7RBUeWXk3dm68cHQT6yBDAYN46dASSQy0VQOYhc0jt3hPrJEOLS1mX96ubni9VQQ7JXu5k=,iv:hGk+CAsGUHZttSBYdBXYt9UTU5FTJFyzpwjeFnRfHtY=,tag:ofT3hApO1EL2G1AOiZ7S4w==,type:str]
+            log_level: trace
+            email:
+                host: ENC[AES256_GCM,data:lKXq0DwwAYwtJ9kqZFuNRPt9Bg==,iv:Mo32C+wAU4djmeY8H0oPwsJVPDpfXBdvMLi87xikGys=,tag:6gv+LGf/oPQd0j/5h/Lz0w==,type:str]
+                port: ENC[AES256_GCM,data:MknX,iv:GYGqczimQIc3je039l3MbAVNW2zgbh1M37AIWH8W510=,tag:Bw5+oAV2iXQCmGBOx043GA==,type:int]
+                username: ENC[AES256_GCM,data:9VsHEYqXlDFaFALWy4HE+wwx,iv:0T0ad+By+QQVECHTEntL5sP/ohOtz922O8S2xLh776w=,tag:aw942NwoSQEnsHVIThKrtw==,type:str]
+                password: ENC[AES256_GCM,data:fnKEFi1MbszBtszLy+U=,iv:Wjk5nkbYW5i7wNPKytiYJrWOPs/vmHwPJv/MlS+ISHo=,tag:JuK6hg00ZVmsDvBq4pd0kA==,type:str]
+                use_tls: ENC[AES256_GCM,data:o5ygPw==,iv:OfTh96AH00NaHx7slOvnsNXIGNvLLcb/CLEFOqh5pfo=,tag:B2QGpg7un0tzldex/4gvTg==,type:bool]
+                from: ENC[AES256_GCM,data:4hqEgdYblcDFudmn+JhF2RNAssAPKFhYnSzr8NBL,iv:fEKD9LqaAspV+Tu5ZwCkr82IuIdLdUdjvVnNChkPjFg=,tag:vsCeDFK0GLTdTso2FXJfJA==,type:str]
+        server:
+            ingress:
+                ingressClassName: traefik
+                enabled: true
+                hosts:
+                    - ENC[AES256_GCM,data:ZEX4PzIg5syO7MBh0AO7OWBWscqI,iv:WOzOeTh4AtSUfs21ppUg9tqzTAUcB1lt59WW0eGV/AM=,tag:CEHz//cdZWFJapcMxX8sQA==,type:str]
+                    - ENC[AES256_GCM,data:miEeAORvhIyGAyjvcwcBplVRRW1QNQ==,iv:nSChQQN3j0YHN/Y1SCvwlPqYhbfJHLbK/ndF5N23bhQ=,tag:B9DOQguXpi/b9I/5nyFMhQ==,type:str]
+                tls:
+                    - hosts:
+                        - ENC[AES256_GCM,data:2CXBTmTfrIiBNfdnYX7UjhmsRbXg,iv:/w74vSerR2ZK8G3hWp9HG5MRTZCwEHUIoFz4IUW2T9E=,tag:PJxP33Ha1fNmjWYAVrky9A==,type:str]
+                        - ENC[AES256_GCM,data:1HgJ1Lw3Zp0f+aM61fHjgtqt0yNXMw==,iv:fGy8Tly4KiUhObQW1O4XY0bagJRnO6r09VjHuBXWe6w=,tag:x/i+k0M4Ku/C2VB+cAkddg==,type:str]
+                      secretName: authentik-web-tls
+        postgresql:
+            enabled: true
+            auth:
+                password: ENC[AES256_GCM,data:/mN2l+nmM+zCMj8FCa0hIFc6C7tIYSC7bZu4YL5S4SkaVegvN50JBqsJ4ylm+TzlDkYNSCMmS93PjStoyrUiD8yVKoVNr/xy3g+Ieswqyog=,iv:UqXKkUhg6587S5nbe3Cx4k3mRdmvBItsTK8NzqYnZys=,tag:EFY8Qt/RWsshw6QgIgCc1A==,type:str]
+        redis:
+            enabled: true
+sops:
+    age:
+        - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaajNrajhuRFc2WG81akl2
+            RjBzWk1lTUxWUWZnenR2MmQ2K1piN0FsVTFZCmdDTW84alRMb2xURzNvSm9jYmZX
+            UFcxTzNMMGNaMWVmVk13OCt2VFp2a1UKLS0tIDNCY1RmMW41dTkzR0xRbmFETlpV
+            TU1iemVvTDBPMVRxejZrb2luRzlpbXMKhAwCAm0xk4aA1vCeSw0OKaQQfppWFaD/
+            r27pKnmxuexX7cKX7i3t3pRQ/R2ytQaWlJiFcIylj+l7Md6HDE7PSA==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB6YndRTFBxNy9uTjBKNGhB
+            KzZBay9rY24zTEZ0UXpPM3VJbzhWeEVyckZnCjZnSXYvVURpdWgvdXZnaFJtcFlS
+            WnpVc2oxRW82Nk9tcjNLa1FodzJCb2cKLS0tIEN1dDJNWXpWUkQ5cldlT2E4cElk
+            Mk1ML0pjRWcvSlZxeXJWYTAzblA3VGsKMI64c3btwFMd3EAO9pHOeTnG27NUPvWq
+            BHbOfxg6yYD4QGP7YEYpipRCtS3lP3jMw1alA4GGCt80vRY+6XbzYg==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBPVUV6aCtkc1RiL3VIa1hO
+            SGQ2TmlGcGRUMGJEV1ROd3dkVWZIeTU4Q3g0ClovZmdyM1BZNDN5QUZraEhqV1pr
+            b2Z1N05jTnRRL2RKUGpuWVY5ekJSVEEKLS0tIFk5MVFmaW9uZEJsRjFJNERGNTcv
+            QVVhYjRRcWlxK3FXSFpBd3NwZmVSOTAKNVLLPEUpIYeW3+6coRtFmkqYg5Y2vbco
+            nE5SAI4mMeEUSojTwklhCd1s2+oPifJAxCP9ejIwkrEC0DmER72fsQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-05T19:06:51Z"
+    mac: ENC[AES256_GCM,data:efBbTKXEcygHUL42Jr76ijGvc5nKCQZJ0x8MEaiKLHmEtIxwCMq6ctsWzr4bSQwKvBZCLYxULmLHSg7AlHXzldlwLD0Ix6TiDCO3iAwjpSeELFeH26MFILKmXiR1LR/En6Hs8g97x8hpuXQHk0xLn+UFRy5rIEXCfH26tsRO0Ik=,iv:RnlRiJ8G4PWyzwBYBWdkRxPTQjuqUIwzRYMO0K6j2sI=,tag:uRdx19VeSJVEOahM1thLjg==,type:str]
+    encrypted_regex: ^(secret_key|password|email|hosts)$
+    mac_only_encrypted: true
+    version: 3.10.2

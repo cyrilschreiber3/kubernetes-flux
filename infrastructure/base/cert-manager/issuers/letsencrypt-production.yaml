@@ -5,7 +5,7 @@ metadata:
 spec:
     acme:
         server: https://acme-v02.api.letsencrypt.org/directory
-        email: ENC[AES256_GCM,data:hkJCB+beXMLkn1kxHK1mK5uNtegAkRXXbw==,iv:OQgXCVAmwn8Lp0Jn/lVw3i2k5wltspsYwZZ7AbpTCW8=,tag:12smq780NhLPocPdITr2sQ==,type:str]
+        email: ENC[AES256_GCM,data:+OF+wq0tT+4vKVaf+SnUDVqwodLJlKhqCA==,iv:gQrmNBBIPybUWVK8xHPZUMosKAEQpGO5MtmPIzXC2ts=,tag:PN6pIjPGEq4uCjTYNt24bA==,type:str]
         privateKeySecretRef:
             name: letsencrypt-production
         solvers:
@@ -19,39 +19,40 @@ spec:
                             key: api-token
               selector:
                 dnsZones:
-                    - cyrilschreibernet.ch
-                    - the127001.ch
-                    - schreibernet.dev
+                    - ENC[AES256_GCM,data:iX3ysDdAULapX4Clb7I+t1g=,iv:ZqFXJh3G7IvkgcuSc50jXa0nk3jzty2esCzH5hp1HRg=,tag:dqzmvfcD5k2yvih674pvGg==,type:str]
+                    - ENC[AES256_GCM,data:D6naK7k+rkDx8aIe,iv:sKnzT0r0UAGus5A4aAWp6bcbGdrA+Gr+9RjJo3qgvdE=,tag:rzAkUgWHEMhDr9dPncZ30g==,type:str]
+                    - ENC[AES256_GCM,data:j8iiYIMEbqvf4UYVZABdgw==,iv:saAZ91qRhAeOqlWDjfknF79qzLT1w9bJSUCp4gEvIJ8=,tag:1+pvgyzY0igtKfmQFh1vjA==,type:str]
 sops:
     age:
         - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVN1Z6cUNSNkUxdzNXQlh3
-            V2hLSUgwZzl2YXVhMytqdEZHL2dqYkE0RHpJCm9EZmhkLzdlU1MxdHBla28xU0ll
-            aGlzNjU5YmpPWnpYRzFna0NQN1pLVlUKLS0tIHkzeDN3UGZVdEtQZjZMNk1iNWxE
-            ZWlPRjRPcXpRSTZ1dFJ2bGppbFNoN3MKVJfJaTclHk46hI504vo0lgDugm45eE6f
-            2x42m3KsZPo+EVh6P+ifco/Vi6XlmEuVCGSV0l3mXOui7sZUQvloKw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2ekxMdzlNUWV2elUvNi9j
+            N1o2NmNKTy9Nc1NRZ1lJYVF5Zyt4bTJVVHlFCjVtendEUXQxc1JUZWFFWFBnc0xJ
+            NVc2anJ1UDZralU4eGdYS1grVG1RRUkKLS0tIHNBQVJGN0xOcWF6bFlJL2tQcWZZ
+            cUZISWx6OWhWb1lLd2c4eGlhWXVoK0kKU7faCby7P/AmzYys67YpNTqM17jwVirW
+            Pu5Fmz5qBcf2eqjU6yRwCAM0hSKS6Xw34bD1kfE+/TKN7JATXi8jDA==
             -----END AGE ENCRYPTED FILE-----
         - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2YVVXLzBTbmJUUXZUWUUw
-            ZlZwbTZPMExUSjdDNGUwQ3RZdldJY283NzJJCnkyUWJzWEQ4QmFTMUw2c3FyRjVT
-            VzdldG1NTStqUWhSUXV1TEJERndNdlUKLS0tIEpla3pEVUp5TXJObGtoWUpFeXNU
-            VVBxRzJaVUEvZVVzbWc3bzNIRlI2WkUKilIbUVSkuuaqC/vM5se/pMjaozlz3VYu
-            Fjn7iRbnDdrAy+EetbgUiuteGDuedH221GlubGfAofCrIPnbqgs8oA==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBSdmhwVy84M3dqdysvK1Fp
+            NkkyWWhtdFQ4TTR1QXpTNjF2QVp3c2lCTVNRCjM4TFJPOUxkbGRlWnZ2T0RlVy8r
+            cnNxWmp3Q3FRRXVJSFdzQUkwV1Zsa1UKLS0tIDY4L2Eya0lxd2lnNTVHN3REQVJk
+            dkZwalJpQTRBbUQxV0dGbGV2S2g5RlkKUfhfL1NZDkrI66TFaeztDlmVXVzFH+gO
+            CLtZfU5gLgw9J7vdYbSzitZ49xiHSJKhf5+8Q+KDhgHrsW/EC4xJqQ==
             -----END AGE ENCRYPTED FILE-----
         - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwdWJ3WnRNazlycHF3eHoz
-            QWs5Zi9OTXc0Z2xwenlFWkNlemVnZ0x3U2lvCjlPV3lBVmhEK1J0WDF3OS9ZSTA5
-            eHJYKy9JeTdDbVdqb29aajViUDFWNW8KLS0tIEpsZHREQkZ2cFNJMWhHaUE1emd4
-            bXgzeWVxQ1ZJNTVkZzVFM3ZRUWlBRUUKO8lmQGxYv5wrUNjZx9w8b+zORhYNm/kL
-            QM/uyAdsJLMmWucPfgCdgK7zUvAbKrMeOl/k7FjAW07EYzhGO8dPAg==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmV1FHN1VITnFmQTlzZ01t
+            OW1yUFg4cy9sY1ZyTzA4dzhtMWIzMXVSUUQ4CmxxTUR4bDRKWnp3L2hDV040WUhq
+            M2JmQzhNVlprRHNHR01UYUkyaDNnUUUKLS0tIFNYbGo5RmE3WFJEcGxvVGZ0SVk0
+            a3NnMENqTDhZY1ZnSUtVdmk2SFFjNmMKwlbkI7BHVKZmjDj7GB9oLP+eBVP5MVj+
+            yOoq/j2q0pD2IJg710cusBS73FGBN0PuWt0EcjESZ01ZJdGUbk37mw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-07-27T22:21:10Z"
-    mac: ENC[AES256_GCM,data:8GDU0R62GdZTInb+36sOBqnCDOovmvMJCiU4jPDuhVfzfHraCbQvkuydmgrYRtCv8CAceLfRPitLcDNJGYEEF0U4UDZ7r2OY3MVcn6jwCrEiL3Mpp/5NyqY6oH9+jhD0p07JY9ZnEyrC5L+Zv8I7c8OpR8UhkwUIk5a9cMInGcw=,iv:338+9Xj0cwaEjVhEVC3MxqGXmHG4hi2BP3zJyqWScgk=,tag:IZozk+sghJG04vxX9dfQmA==,type:str]
-    encrypted_regex: ^(email)$
+    lastmodified: "2025-08-05T18:07:00Z"
+    mac: ENC[AES256_GCM,data:Q3OB2rIrg1+77nqsi4ZMsSDfffBZvmWLj7TmkVH7usC9S/4Tx9rbd2I2Tm7/qyP9xNpo+BsfSVd+wt6MfowlHScLlThTbozMO2HmuqQLIZ5ctXf/pMvFpNRPtAtS/BJYbb7FjUsQLXdu032jN/0W1zHXpqh3+lEwh2ry8ztJbLo=,iv:Hj4YZBhi+0tORI3lOp8nqrBIPcSpSULW2zW4T2nacX8=,tag:MljtmBmMRE2OyUF8/lJ8JA==,type:str]
+    encrypted_regex: ^(email|dnsZones)$
+    mac_only_encrypted: true
     version: 3.10.2

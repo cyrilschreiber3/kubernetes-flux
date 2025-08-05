@@ -1,57 +1,58 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-staging
+    name: letsencrypt-staging
 spec:
-  acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: ENC[AES256_GCM,data:hkJCB+beXMLkn1kxHK1mK5uNtegAkRXXbw==,iv:OQgXCVAmwn8Lp0Jn/lVw3i2k5wltspsYwZZ7AbpTCW8=,tag:12smq780NhLPocPdITr2sQ==,type:str]
-    privateKeySecretRef:
-      name: letsencrypt-staging
-    solvers:
-      - dns01:
-          webhook:
-            groupName: acme.infomaniak.com
-            solverName: infomaniak
-            config:
-              apiTokenSecretRef:
-                name: infomaniak-api-credentials
-                key: api-token
-        selector:
-          dnsZones:
-            - cyrilschreibernet.ch
-            - the127001.ch
-            - schreibernet.dev
+    acme:
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        email: ENC[AES256_GCM,data:lunQxF+OFd9g2L6H94u+xlnGXqIw5B0RUg==,iv:TtCw0lIUyK5K95f7jVue/KtMc2CPjPu8VMg5+PIFr0g=,tag:J9H27oQ0NaXTLbAoqWkT2Q==,type:str]
+        privateKeySecretRef:
+            name: letsencrypt-staging
+        solvers:
+            - dns01:
+                webhook:
+                    groupName: acme.infomaniak.com
+                    solverName: infomaniak
+                    config:
+                        apiTokenSecretRef:
+                            name: infomaniak-api-credentials
+                            key: api-token
+              selector:
+                dnsZones:
+                    - ENC[AES256_GCM,data:HH8vOXXRwDlKWGVu09i/ekw=,iv:16xbcai5ytfyhoOIOAsI40aERqVNP0kAtNHGS5lYzKU=,tag:hPtdj5fVNc/yUiX4uuPQVw==,type:str]
+                    - ENC[AES256_GCM,data:F8vBM2m/PIX/4IfE,iv:SN1fABXTf4rQKUeBIKzQ3GJPyQ+BkNIEAnTfoR2q8Yg=,tag:Gnx8QmMzuVGZj5ilQvHrhQ==,type:str]
+                    - ENC[AES256_GCM,data:dtc0MCiB1bt2jIoHk4NGKQ==,iv:uh8TwWCH+hOmF40aZpEGe1Lk/unzc5lftApigxuoGmU=,tag:qvHQib2awurJo21dXlM4fA==,type:str]
 sops:
-  age:
-    - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
-      enc: |
-        -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVN1Z6cUNSNkUxdzNXQlh3
-        V2hLSUgwZzl2YXVhMytqdEZHL2dqYkE0RHpJCm9EZmhkLzdlU1MxdHBla28xU0ll
-        aGlzNjU5YmpPWnpYRzFna0NQN1pLVlUKLS0tIHkzeDN3UGZVdEtQZjZMNk1iNWxE
-        ZWlPRjRPcXpRSTZ1dFJ2bGppbFNoN3MKVJfJaTclHk46hI504vo0lgDugm45eE6f
-        2x42m3KsZPo+EVh6P+ifco/Vi6XlmEuVCGSV0l3mXOui7sZUQvloKw==
-        -----END AGE ENCRYPTED FILE-----
-    - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
-      enc: |
-        -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2YVVXLzBTbmJUUXZUWUUw
-        ZlZwbTZPMExUSjdDNGUwQ3RZdldJY283NzJJCnkyUWJzWEQ4QmFTMUw2c3FyRjVT
-        VzdldG1NTStqUWhSUXV1TEJERndNdlUKLS0tIEpla3pEVUp5TXJObGtoWUpFeXNU
-        VVBxRzJaVUEvZVVzbWc3bzNIRlI2WkUKilIbUVSkuuaqC/vM5se/pMjaozlz3VYu
-        Fjn7iRbnDdrAy+EetbgUiuteGDuedH221GlubGfAofCrIPnbqgs8oA==
-        -----END AGE ENCRYPTED FILE-----
-    - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
-      enc: |
-        -----BEGIN AGE ENCRYPTED FILE-----
-        YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAwdWJ3WnRNazlycHF3eHoz
-        QWs5Zi9OTXc0Z2xwenlFWkNlemVnZ0x3U2lvCjlPV3lBVmhEK1J0WDF3OS9ZSTA5
-        eHJYKy9JeTdDbVdqb29aajViUDFWNW8KLS0tIEpsZHREQkZ2cFNJMWhHaUE1emd4
-        bXgzeWVxQ1ZJNTVkZzVFM3ZRUWlBRUUKO8lmQGxYv5wrUNjZx9w8b+zORhYNm/kL
-        QM/uyAdsJLMmWucPfgCdgK7zUvAbKrMeOl/k7FjAW07EYzhGO8dPAg==
-        -----END AGE ENCRYPTED FILE-----
-  lastmodified: "2025-07-27T21:03:19Z"
-  mac: ENC[AES256_GCM,data:VZStfMaFkv4BMSIzHbknRKIpnn+6YbEoMIy2MfN3Q4WTnLe4VE7RCofIKqvKoAY7rLSSWeEX44kFH8IkblYL/ln9xWPaEpV0c6yu4LosNjwbhl8Xq3ITQRsh8lbPUhiI59HmKkcLorcQ4NOZNy29SlRtrtTJ0AWRuWY8K4K6GOg=,iv:q3t4okPSMdkWk0y7kgmix6m6ThWRZLYzl8v8H0BRIXY=,tag:bQHG9gW8r0udOGJKHAABcQ==,type:str]
-  encrypted_regex: ^(email)$
-  version: 3.10.2
+    age:
+        - recipient: age148jrkzdhyv0eq985fg6gyexsgnv3ud4z3s453nkdat9hl2879cuqrt6pmn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaK3FjNS9mVjdSOTB1RC9r
+            Yms0Z2tudVcyV245am9XcUh5d0Z0NUZsa0dRCjkxN21CbmQ1VnFqejR6M2kxbzY5
+            dllWR1RkWFpvN091RDdLWmdMMm14SmcKLS0tIHc4a1J4Lzh4d01hWG5YT2ZOcDFl
+            T2Npekp6UDYyRnF0ckRQdVpXSkpqTVkKJqtf9xS8dQspTDs4Q6dTW3iRDrvFd+pR
+            pWg7EK5wtxbgXR43M4pHuOkQgcpSsU+BorgquXkR1tXEJUfBkgJzdg==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age15jhrq2zs3lceq7s4agzlmqpc4f95h3wzhpcf7nft44j6sst6vfwsjeqyan
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzQjljV3JlejJhRG5UMW81
+            NUpxTWVHbW5YeDU0SWtzRFdGSzVtUEVqODJNCmxtWWJNVGxVNHcyOTNoNFlOL3hz
+            NnNUY1NDYmxOSmt6S3BGajZqWlBYUEkKLS0tIHpqSlBMOHc2YUd0RGptbmV0ajEv
+            SVVVWnVudk5kQm9WSDdqNSsrcGRHVUUKujNRJ6Pda2lS4L25LC3UTjkpR8bUwT7z
+            oTX3ryPHr1cUUIc4G/nGIHPRxXqoKFD738AZlxTG2ZhgsGzNrYYjVQ==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age1mstqgwpwyjscjth7l3m7pdm8f84afzjs0xgq396cmkdnxr5arurq88z05d
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBRL3hBLzhCWWNhMEd2L2lF
+            VlROYkpZUU5KajhGZytJdU1YUGxlSi8vc0JNCmpoUUVnRjhuUlZQSU1zNnRZLzBa
+            ODcvTW1qdHc1WkFYMHpxMEZvd2RBMFUKLS0tIDAxTWhFMnM2S0cvUG5QLy9IWXpP
+            Z29pUS95eEtJeVYxaHdmZkhFOWdCNkUKVAr4N1zepvMV17WavsNusPFLUf1Gfe3v
+            FbrtwtIGbvc2ojlc8lStqOClFpTQn/twHKmQZc3vqv5VOOjaPxyTNw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-05T18:07:25Z"
+    mac: ENC[AES256_GCM,data:ofOa7xXQwK9BKTuftQN8SSxoXCTxnw80VrTmXS0o846de+HOVihNYi6CwuX/sqVkSRIhpgfc5vK59Sifo1fijWw1Dv4b9H9jx+8IToVlLZvbp76p1wbI1nhEnfX7M7cT1y2a+BErSFbLiE3NiXT/SyFOKxeHZswyzqTHuMmHrSc=,iv:3cJ2gehjGEA9uSgaDkQWi9GweC7Ci1AHuU/gvtr1wvE=,tag:9ZHSulgRm9k9wZU1S4gbeg==,type:str]
+    encrypted_regex: ^(email|dnsZones)$
+    mac_only_encrypted: true
+    version: 3.10.2
