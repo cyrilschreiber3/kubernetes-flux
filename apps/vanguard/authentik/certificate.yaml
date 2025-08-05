@@ -10,6 +10,7 @@ spec:
         kind: ClusterIssuer
     commonName: schreibernet.dev
     dnsNames:
+        - ENC[AES256_GCM,data:nhyFmaDpDfAsbsncj6lZ5g==,iv:v3SmnrxBi8ftTrPOvBHQX1FbSyA80/+YfYJg90gTdOY=,tag:XzWM3lSBTNUPKi8zhqJRUw==,type:str]
         - ENC[AES256_GCM,data:ncxh1vgRtb/NQ/qPDH8DmWKy,iv:0xmRBLWODWgrrg0vXT3OGNuT/DyGQFwCb4G7v84Md7M=,tag:A9546kRpBoykprRJce2/yg==,type:str]
         - ENC[AES256_GCM,data:PJMeMYx0A0Q+a4Gb8VEq/mIKDg==,iv:3uJelVr+1mwsDGfPk9RE0z/DSS14v8SIa+XNfGdHRno=,tag:Ae3zcMK28IQ9MxWW/SKpsQ==,type:str]
 sops:
@@ -41,8 +42,8 @@ sops:
             SXJWWldvSlhabEFsbXNIczBFSVhHUEUK0PZqM6Gs1y4DHY68JguvUdIvNUqk23sx
             V7lbSspB//gyUhmgMJmyIibknEUJ13qQ5dIIbPmyQVNngqR5uSdq6w==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-05T18:02:19Z"
-    mac: ENC[AES256_GCM,data:2vedQq7EeADt/qXuwtpWYnUlX8W30MEP/V6uNl6kSBB5hubLyFLbFzJHiYXBv6r3nGLiUtFyo8VzGYWznWcj+Z+oDy8fsD5oCWr4iXlYS5BX/LuqRMPEiq+pd2Bx/QnJfAyuxkrxaonGCyqqEjKsiSCmJ9PUIPdRglgLk1d+TgI=,iv:njPJ3OzUfOdZdyLM/p38SpKb3qATqGlSP1GmCui9teM=,tag:VBy1k99Q5o6BvllK3BV9mA==,type:str]
+    lastmodified: "2025-08-05T20:10:25Z"
+    mac: ENC[AES256_GCM,data:vg6NKTXTz7+XR1W9bIaTYcORuMqbkjbVFrUCVGka8AK7WC59WhRYB7gVNRVgiyOAFVGpjm1ZU2GYy6tB4uVbgRakoDqZKa6dtW4c1tB4DSGuTIHv1gIdDnzHwWDs/O+10NMMSrK4nRnjb40hqmGbVCU0m/0cxIVHR9k8xAvbfFI=,iv:XfwgkgN3mT3amSZ8poEXpWnYQo9DOgpw4Zr8Y8D4er0=,tag:AO7GYmZRJo8QHDDfrMSQ+w==,type:str]
     encrypted_regex: ^(dnsNames)$
     mac_only_encrypted: true
     version: 3.10.2
