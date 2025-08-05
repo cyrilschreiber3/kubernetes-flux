@@ -20,6 +20,15 @@ creation_rules:
           - *flux
           - *endeavor_dev_01
 
+  - path_regex: certificate.*\.yaml$
+    mac_only_encrypted: true
+    encrypted_regex: ^(dnsNames)$
+    key_groups:
+      - age:
+          - *cyril
+          - *flux
+          - *endeavor_dev_01
+
   - path_regex: .*\.yaml$
     mac_only_encrypted: true
     key_groups:
