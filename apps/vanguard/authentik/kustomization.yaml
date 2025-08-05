@@ -5,6 +5,7 @@ namespace: authentik
 resources:
   - ../../base/authentik
   - certificate.yaml
+  - dnsendpoint.yaml
 patches:
   - path: helmrelease-values.yaml
     target:

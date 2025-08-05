@@ -3,9 +3,6 @@ kind: HelmRelease
 metadata:
     name: authentik-release
     namespace: authentik
-    annotations:
-        external-dns.alpha.kubernetes.io/hostname: auth.schreibernet.dev
-        external-dns.alpha.kubernetes.io/target: vanguard-kc-13-vip.schreibernet.dev
 spec:
     chart:
         spec:
@@ -75,8 +72,8 @@ sops:
             QVVhYjRRcWlxK3FXSFpBd3NwZmVSOTAKNVLLPEUpIYeW3+6coRtFmkqYg5Y2vbco
             nE5SAI4mMeEUSojTwklhCd1s2+oPifJAxCP9ejIwkrEC0DmER72fsQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-05T19:41:35Z"
-    mac: ENC[AES256_GCM,data:6TnUj1zaB8+MeJnx43KZhUl7KhH6bHx5B2VahICdwQd15cWZi3ZY6ohI2zMU1ZENg8x1wHAMF4bZXNxDLfKFdqSbKCc+q176JpaqGlTkQzXi9KfO3ZtbG3Z5U0JUXMspVg1yYwJh2tlVvCRruNl6Cnvw5nDooN0aFn+5Xuzz/MA=,iv:b24hlhozmr9iBy1bpHEZ4HlFXlKz3iCxt+kkDKUGhl4=,tag:SQjEyTe/LrjGVWt7tvmXZw==,type:str]
+    lastmodified: "2025-08-05T19:49:55Z"
+    mac: ENC[AES256_GCM,data:/mihI1lFNCFOqDoIdVNlnubIOIt56EKMW3nnqEGNB9yL+V07I/DQAbfFezQAEMKdk65tdPqM//biZmEcNm/7zd/Ol4cG4omwKf+VmkLsUjGqdvn1peVzeMpWVf2F+z4OB5RsqfkTAuoRBcwxrvPZ7conPHfe86C4QCwkvlBoJPM=,iv:MgFFWn/khgun+RC+R0ihKkR9Alm12knSTNFalKcOlzI=,tag:IuLnAEXIL55O/qHqN2aQuw==,type:str]
     encrypted_regex: ^(secret_key|password|email|hosts)$
     mac_only_encrypted: true
     version: 3.10.2
