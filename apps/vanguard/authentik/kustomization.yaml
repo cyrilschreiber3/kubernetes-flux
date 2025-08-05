@@ -5,4 +5,7 @@ namespace: authentik
 resources:
   - ../../base/authentik
   - certificate.yaml
-  - helmrelease-values.yaml
+patches:
+  - path: helmrelease-values.yaml
+    target:
+      kind: HelmRelease
