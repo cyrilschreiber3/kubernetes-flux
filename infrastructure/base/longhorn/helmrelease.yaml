@@ -13,4 +13,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: longhorn-repo
+      version: v1.9.1
       interval: 12h

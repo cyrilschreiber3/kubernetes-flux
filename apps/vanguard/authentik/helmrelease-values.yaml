@@ -4,9 +4,6 @@ metadata:
     name: authentik-release
     namespace: authentik
 spec:
-    chart:
-        spec:
-            version: 2025.6.4
     values:
         authentik:
             secret_key: ENC[AES256_GCM,data:BsL74owfS6l7+bfRhV7ZckrdP/Q+NkTmfh8DXP/i/Q4UXmiANaEzxgjXtf22tDGEfhCopzpuqII4QZ16V2n1rJs52kpsoQs4/o6xSv8hOxI=,iv:InUTu/yUNU/hwOo5i70dFXA/rEuCJZzqG7ha87fePYo=,tag:sQHL/o9HTLeY/2bYmQ7DmA==,type:str]
@@ -72,8 +69,8 @@ sops:
             QVVhYjRRcWlxK3FXSFpBd3NwZmVSOTAKNVLLPEUpIYeW3+6coRtFmkqYg5Y2vbco
             nE5SAI4mMeEUSojTwklhCd1s2+oPifJAxCP9ejIwkrEC0DmER72fsQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-08-05T19:49:55Z"
-    mac: ENC[AES256_GCM,data:/mihI1lFNCFOqDoIdVNlnubIOIt56EKMW3nnqEGNB9yL+V07I/DQAbfFezQAEMKdk65tdPqM//biZmEcNm/7zd/Ol4cG4omwKf+VmkLsUjGqdvn1peVzeMpWVf2F+z4OB5RsqfkTAuoRBcwxrvPZ7conPHfe86C4QCwkvlBoJPM=,iv:MgFFWn/khgun+RC+R0ihKkR9Alm12knSTNFalKcOlzI=,tag:IuLnAEXIL55O/qHqN2aQuw==,type:str]
+    lastmodified: "2025-08-29T15:15:57Z"
+    mac: ENC[AES256_GCM,data:RMNdzvJC1TqiGlbGDurbF+FomCNz5gmC2hvOXpyj9COYUY1JreDzJdmduwFoR4I6c5dRflUNI7exmp6uUI8ezsRTUSzGzOqDRUJzRWHb7seT0r6KAlZN7llCZP8k1bjl4OMtVwy0cssw+zZ2ZGAVu6V+syFqaWlJ72OYQoids0s=,iv:FjhUVPDUiuvWJ1w4ZDoTFvEDDSlVKVsiop+Lcd48+bU=,tag:3d/wS8CyGLuBxgwWe46zBw==,type:str]
     encrypted_regex: ^(secret_key|password|email|hosts)$
     mac_only_encrypted: true
     version: 3.10.2

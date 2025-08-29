@@ -15,4 +15,5 @@ spec:
         kind: HelmRepository
         name: authentik-repo
         namespace: authentik
+      version: 2025.6.4
       interval: 12h
