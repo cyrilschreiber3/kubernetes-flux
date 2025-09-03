@@ -15,7 +15,7 @@ spec:
         spec:
           containers:
             - name: renovate
-              image: renovate/renovate:41.75
+              image: renovate/renovate:41.95
               args:
                 - cyrilschreiber3/kubernetes-flux
 
