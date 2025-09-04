@@ -44,6 +44,7 @@ $ORIGIN 1.1.10.in-addr.arpa.
 61                              IN      PTR     gemini-bak-01.schreibernet.dev.
 62                              IN      PTR     endeavor-dev-01.schreibernet.dev.
 63                              IN      PTR     crucible-pro-01.schreibernet.dev.
+64                              IN      PTR     starfarer-bak-02.schreibernet.dev.
 
 ; Management
 80                              IN      PTR     mercury-fs-01-ipmi.schreibernet.dev.

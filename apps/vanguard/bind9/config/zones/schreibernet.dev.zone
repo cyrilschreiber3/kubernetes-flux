@@ -45,6 +45,7 @@ dragonfly-mda-01                IN      A       10.1.1.60
 gemini-bak-01                   IN      A       10.1.1.61
 endeavor-dev-01                 IN      A       10.1.1.62
 crucible-pro-01                 IN      A       10.1.1.63
+starfarer-bak-02                IN      A       10.1.1.64
 ; Management
 mercury-fs-01-ipmi              IN      A       10.1.1.80
 kraken-dh-01-ipmi               IN      A       10.1.1.81
@@ -186,3 +187,6 @@ $ORIGIN endeavor-dev-01.schreibernet.dev.
 $ORIGIN crucible-pro-01.schreibernet.dev.
 cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 maas                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+
+$ORIGIN starfarer-bak-02.schreibernet.dev.
+admin                           IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
