@@ -172,7 +172,7 @@ wings                           IN      CNAME   lightning-pxy-34-vip.schreiberne
 
 $ORIGIN freelancer-cld-01.schreibernet.dev.
 cockpit                         IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
-netxcloud-config                IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
+nextcloud-config                IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 sync                            IN      CNAME   lightning-pxy-34-vip.schreibernet.dev.
 
 $ORIGIN galaxy-rmm-01.schreibernet.dev.
