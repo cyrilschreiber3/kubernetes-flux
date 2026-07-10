@@ -31,6 +31,10 @@ spec:
                       secretName: authentik-web-tls
         postgresql:
             enabled: true
+            image:
+                registry: docker.io
+                repository: library/postgres
+                tag: 17.10-bookworm
             persistence:
                 size: 3Gi
             auth:
